@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Service Areas | Steamboat Masters Granite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<style>:root{--bg1:#0C0B0A;--bg2:#111110;--bg3:#1A1918;--em:#163631;--em-d:#0F2723;--em-l:#1E4A43;--em-g:#2A6B60;--gold:#C4A265;--gold-l:#D4B97A;--gold-d:#8B7342;--t1:#F5F0E8;--t2:#A89F94;--t3:#6B6358;--b-gold:rgba(196,162,101,.15);--b-em:rgba(30,74,67,.5);--sf:'Cormorant Garamond',Georgia,serif;--sn:'Outfit',sans-serif;--ease:cubic-bezier(.25,.46,.45,.94)}*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:var(--sn);background:var(--bg1);color:var(--t1);overflow-x:hidden;-webkit-font-smoothing:antialiased}body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");pointer-events:none;z-index:9999}::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--em-l);border-radius:3px}img{display:block;max-width:100%}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 3.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(12,11,10,.93);backdrop-filter:blur(24px);border-bottom:1px solid var(--b-gold)}.nav-logo{display:flex;align-items:center;text-decoration:none;height:40px}.nav-logo img{height:100%;width:auto;object-fit:contain}.nav-links{display:flex;align-items:center;gap:2.5rem;list-style:none}.nav-links a{font-size:.7rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--t2);text-decoration:none;transition:color .3s;position:relative}.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .4s var(--ease)}.nav-links a:hover{color:var(--gold-l)}.nav-links a:hover::after{width:100%}.nav-cta{color:var(--bg1)!important;background:var(--gold);padding:.65rem 1.8rem;border:1px solid var(--gold);transition:all .4s}.nav-cta:hover{background:transparent;color:var(--gold-l)!important}.nav-cta::after{display:none!important}.mob-tog{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}.mob-tog span{width:24px;height:1.5px;background:var(--t1)}
+.sec-lab{display:inline-flex;align-items:center;gap:12px;margin-bottom:1.25rem}.sec-lab-line{width:30px;height:1px;background:var(--gold)}.sec-lab-text{font-size:.63rem;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.page-hero{padding:10rem 6vw 4rem;background:var(--em-d);border-bottom:1px solid var(--b-em);position:relative}.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(196,162,101,.04),transparent 60%);pointer-events:none}.page-hero h1{font-family:var(--sf);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;line-height:1.15;margin-bottom:1rem}.page-hero h1 em{font-style:italic;color:var(--gold-l)}.page-hero p{font-size:.95rem;font-weight:300;line-height:1.7;color:var(--t2);max-width:600px}
+#map{height:600px;width:100%;border-bottom:1px solid var(--b-em)}
+.leaflet-tile-pane{filter:saturate(0) brightness(.35) sepia(.8) hue-rotate(100deg) contrast(1.1)}
+.leaflet-container{background:var(--bg1)}
+.locations-grid{padding:5rem 6vw;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem}
+.loc-card{background:var(--bg3);border:1px solid rgba(255,255,255,.03);padding:1.5rem;transition:all .4s;text-align:center}.loc-card:hover{background:var(--em-d);border-color:var(--b-em)}
+.loc-card h3{font-family:var(--sf);font-size:1.1rem;font-weight:400;margin-bottom:.25rem}.loc-card p{font-size:.72rem;font-weight:300;color:var(--t3)}
+.loc-card.hq{border-color:var(--gold-d);background:var(--em)}.loc-card.hq h3{color:var(--gold-l)}.loc-card.hq p{color:var(--gold-d)}
+.btn-p{display:inline-flex;align-items:center;gap:10px;font-family:var(--sn);font-size:.72rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--bg1);background:var(--gold);padding:1rem 2.4rem;text-decoration:none;border:1px solid var(--gold);transition:all .4s}.btn-p:hover{background:var(--gold-l);transform:translateY(-2px)}.btn-arr{width:20px;height:1px;background:currentColor;position:relative;transition:width .3s}.btn-arr::after{content:'';position:absolute;right:0;top:-3px;width:7px;height:7px;border-right:1px solid currentColor;border-top:1px solid currentColor;transform:rotate(45deg)}.btn-p:hover .btn-arr{width:30px}
+.cta-banner{background:var(--em);border-top:1px solid var(--em-l);padding:4rem 6vw;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}.cta-banner h2{font-family:var(--sf);font-size:1.8rem;font-weight:300}.cta-banner h2 em{font-style:italic;color:var(--gold-l)}
+.footer{background:var(--em-d);border-top:1px solid var(--b-em);padding:2.5rem 6vw 1.5rem}.ft-bot{display:flex;align-items:center;justify-content:space-between}.ft-bot p{font-size:.68rem;font-weight:300;color:var(--t3)}
+@media(max-width:768px){.nav{padding:1rem 1.5rem}.nav-links{display:none}.mob-tog{display:flex}.nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(12,11,10,.97);backdrop-filter:blur(20px);padding:2rem 1.5rem;gap:1.5rem;border-bottom:1px solid var(--b-gold)}.page-hero{padding:8rem 5vw 3rem}#map{height:400px}.locations-grid{padding:3rem 5vw}.cta-banner{flex-direction:column;text-align:center;padding:3rem 5vw}.ft-bot{flex-direction:column;gap:1rem;text-align:center}}</style></head>
+<body>
+<nav class="nav"><a href="index.html" class="nav-logo"><img src="SMG-logo-ochre-white.png" alt="SMG"></a><ul class="nav-links" id="navLinks"><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="index.html#gallery">Portfolio</a></li><li><a href="providers.html">Providers</a></li><li><a href="faqs.html">FAQs</a></li><li><a href="track.html">Track Order</a></li><li><a href="contact.html" class="nav-cta">Free Estimate</a></li></ul><button class="mob-tog" id="mobTog" aria-label="Menu"><span></span><span></span><span></span></button></nav>
+<section class="page-hero"><div class="sec-lab"><span class="sec-lab-line"></span><span class="sec-lab-text">Coverage Area</span></div><h1>Where We <em>Serve</em></h1><p>Based in Steamboat Springs, we proudly serve a 100-mile radius across Northwest Colorado and Southern Wyoming. If your location is not listed, contact us — we may still be able to help.</p></section>
+<div id="map"></div>
+<div class="locations-grid">
+<div class="loc-card hq"><h3>Steamboat Springs</h3><p>Headquarters</p></div>
+<div class="loc-card"><h3>Hayden</h3><p>Routt County</p></div>
+<div class="loc-card"><h3>Craig</h3><p>Moffat County</p></div>
+<div class="loc-card"><h3>Oak Creek</h3><p>Routt County</p></div>
+<div class="loc-card"><h3>Clark</h3><p>Routt County</p></div>
+<div class="loc-card"><h3>Yampa</h3><p>Routt County</p></div>
+<div class="loc-card"><h3>Phippsburg</h3><p>Routt County</p></div>
+<div class="loc-card"><h3>Walden</h3><p>Jackson County</p></div>
+<div class="loc-card"><h3>Kremmling</h3><p>Grand County</p></div>
+<div class="loc-card"><h3>Granby</h3><p>Grand County</p></div>
+<div class="loc-card"><h3>Winter Park</h3><p>Grand County</p></div>
+<div class="loc-card"><h3>Vail</h3><p>Eagle County</p></div>
+<div class="loc-card"><h3>Eagle</h3><p>Eagle County</p></div>
+<div class="loc-card"><h3>Glenwood Springs</h3><p>Garfield County</p></div>
+<div class="loc-card"><h3>Meeker</h3><p>Rio Blanco County</p></div>
+<div class="loc-card"><h3>Rifle</h3><p>Garfield County</p></div>
+<div class="loc-card"><h3>Silverthorne</h3><p>Summit County</p></div>
+<div class="loc-card"><h3>Breckenridge</h3><p>Summit County</p></div>
+<div class="loc-card"><h3>Aspen</h3><p>Pitkin County</p></div>
+<div class="loc-card"><h3>Rawlins</h3><p>Wyoming</p></div>
+<div class="loc-card"><h3>Saratoga</h3><p>Wyoming</p></div>
+<div class="loc-card"><h3>Encampment</h3><p>Wyoming</p></div>
+<div class="loc-card"><h3>Baggs</h3><p>Wyoming</p></div>
+<div class="loc-card"><h3>Rock Springs</h3><p>Wyoming</p></div>
+</div>
+<section class="cta-banner"><h2>Not sure if we cover your area? <em>Ask us.</em></h2><a href="contact.html" class="btn-p">Contact Us <span class="btn-arr"></span></a></section>
+<footer class="footer"><div class="ft-bot"><p>&copy; 2025 Steamboat Masters Granite. All Rights Reserved.</p></div></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>
+const mt=document.getElementById('mobTog'),nl=document.getElementById('navLinks');mt.addEventListener('click',()=>nl.classList.toggle('active'));nl.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>nl.classList.remove('active')));
+
+const map=L.map('map',{scrollWheelZoom:false,zoomControl:true}).setView([40.485,-106.832],8);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; OSM &amp; Carto',maxZoom:18}).addTo(map);
+
+// Service radius circle - emerald green
+L.circle([40.485,-106.832],{radius:160934,color:'#2A6B60',fillColor:'#163631',fillOpacity:.25,weight:1.5,dashArray:'6 4'}).addTo(map);
+
+// Gold marker icon
+const goldIcon=L.divIcon({className:'',html:'<div style="width:12px;height:12px;background:#C4A265;border:2px solid #D4B97A;border-radius:50%;box-shadow:0 0 10px rgba(196,162,101,.5)"></div>',iconSize:[12,12],iconAnchor:[6,6]});
+const hqIcon=L.divIcon({className:'',html:'<div style="width:18px;height:18px;background:#C4A265;border:2px solid #F5F0E8;border-radius:50%;box-shadow:0 0 15px rgba(196,162,101,.7)"></div>',iconSize:[18,18],iconAnchor:[9,9]});
+
+const locs=[
+{n:'Steamboat Springs (HQ)',lat:40.485,lng:-106.832,hq:true},
+{n:'Hayden',lat:40.497,lng:-107.257},
+{n:'Craig',lat:40.515,lng:-107.546},
+{n:'Oak Creek',lat:40.274,lng:-106.953},
+{n:'Clark',lat:40.723,lng:-106.917},
+{n:'Yampa',lat:40.154,lng:-106.904},
+{n:'Walden',lat:40.731,lng:-106.283},
+{n:'Kremmling',lat:40.058,lng:-106.388},
+{n:'Granby',lat:40.086,lng:-105.939},
+{n:'Winter Park',lat:39.891,lng:-105.764},
+{n:'Vail',lat:39.640,lng:-106.374},
+{n:'Eagle',lat:39.655,lng:-106.828},
+{n:'Glenwood Springs',lat:39.551,lng:-107.324},
+{n:'Meeker',lat:40.037,lng:-107.913},
+{n:'Rifle',lat:39.534,lng:-107.783},
+{n:'Silverthorne',lat:39.634,lng:-106.074},
+{n:'Breckenridge',lat:39.482,lng:-106.038},
+{n:'Aspen',lat:39.191,lng:-106.818},
+{n:'Rawlins',lat:41.791,lng:-107.239},
+{n:'Saratoga',lat:41.455,lng:-106.806},
+{n:'Encampment',lat:41.208,lng:-106.796},
+{n:'Baggs',lat:41.029,lng:-107.659},
+{n:'Rock Springs',lat:41.587,lng:-109.221}
+];
+
+locs.forEach(l=>{
+L.marker([l.lat,l.lng],{icon:l.hq?hqIcon:goldIcon}).addTo(map).bindPopup('<div style="font-family:Outfit;font-size:13px;font-weight:500;color:#0C0B0A">'+l.n+'</div>');
+});
+</script>
+</body></html>

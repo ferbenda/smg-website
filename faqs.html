@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>FAQs | Steamboat Masters Granite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#0C0B0A;--bg2:#111110;--bg3:#1A1918;--em:#163631;--em-d:#0F2723;--em-l:#1E4A43;--em-g:#2A6B60;--gold:#C4A265;--gold-l:#D4B97A;--gold-d:#8B7342;--t1:#F5F0E8;--t2:#A89F94;--t3:#6B6358;--b-gold:rgba(196,162,101,.15);--b-em:rgba(30,74,67,.5);--b-s:rgba(255,255,255,.06);--sf:'Cormorant Garamond',Georgia,serif;--sn:'Outfit',sans-serif;--ease:cubic-bezier(.25,.46,.45,.94)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:var(--sn);background:var(--bg1);color:var(--t1);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");pointer-events:none;z-index:9999}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--em-l);border-radius:3px}
+img{display:block}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 3.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(12,11,10,.93);backdrop-filter:blur(24px);border-bottom:1px solid var(--b-gold)}
+.nav-logo{display:flex;align-items:center;text-decoration:none;height:40px}.nav-logo img{height:100%;width:auto;object-fit:contain}
+.nav-links{display:flex;align-items:center;gap:2.5rem;list-style:none}
+.nav-links a{font-size:.7rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--t2);text-decoration:none;transition:color .3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .4s var(--ease)}
+.nav-links a:hover{color:var(--gold-l)}.nav-links a:hover::after{width:100%}
+.nav-links a.active{color:var(--gold-l)}.nav-links a.active::after{width:100%}
+.nav-cta{color:var(--bg1)!important;background:var(--gold);padding:.65rem 1.8rem;border:1px solid var(--gold);transition:all .4s}
+.nav-cta:hover{background:transparent;color:var(--gold-l)!important}.nav-cta::after{display:none!important}
+.mob-tog{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}.mob-tog span{width:24px;height:1.5px;background:var(--t1);transition:all .3s}
+.page-hero{padding:10rem 6vw 4rem;background:var(--em-d);border-bottom:1px solid var(--b-em);position:relative}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(196,162,101,.04),transparent 60%);pointer-events:none}
+.sec-lab{display:inline-flex;align-items:center;gap:12px;margin-bottom:1.25rem}
+.sec-lab-line{width:30px;height:1px;background:var(--gold)}.sec-lab-text{font-size:.63rem;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.page-hero h1{font-family:var(--sf);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;line-height:1.15;margin-bottom:1rem}
+.page-hero h1 em{font-style:italic;color:var(--gold-l)}
+.page-hero p{font-size:.95rem;font-weight:300;line-height:1.7;color:var(--t2);max-width:600px}
+.faq-section{padding:5rem 6vw}.faq-grid{max-width:900px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--b-gold);overflow:hidden}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:1.75rem 0;cursor:pointer;gap:2rem;transition:color .3s}.faq-q:hover{color:var(--gold-l)}
+.faq-q h3{font-family:var(--sf);font-size:1.25rem;font-weight:400;line-height:1.4;flex:1}
+.faq-q .faq-num{font-family:var(--sf);font-size:1.1rem;font-weight:300;color:var(--gold-d);min-width:32px}
+.faq-icon{width:24px;height:24px;border:1px solid var(--b-gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .4s;color:var(--gold)}
+.faq-icon svg{width:12px;height:12px;transition:transform .4s}
+.faq-item.open .faq-icon{background:var(--em);border-color:var(--em-l)}
+.faq-item.open .faq-icon svg{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .5s var(--ease),padding .5s var(--ease)}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:1.75rem}
+.faq-a p{font-size:.88rem;font-weight:300;line-height:1.8;color:var(--t2);padding-left:32px}
+.cta-banner{background:var(--em-d);border-top:1px solid var(--b-em);padding:4rem 6vw;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.cta-banner h2{font-family:var(--sf);font-size:1.8rem;font-weight:300}.cta-banner h2 em{font-style:italic;color:var(--gold-l)}
+.btn-p{display:inline-flex;align-items:center;gap:10px;font-family:var(--sn);font-size:.72rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--bg1);background:var(--gold);padding:1rem 2.4rem;text-decoration:none;border:1px solid var(--gold);transition:all .4s}
+.btn-p:hover{background:var(--gold-l);transform:translateY(-2px);box-shadow:0 8px 30px rgba(196,162,101,.2)}
+.btn-arr{width:20px;height:1px;background:currentColor;position:relative;transition:width .3s}
+.btn-arr::after{content:'';position:absolute;right:0;top:-3px;width:7px;height:7px;border-right:1px solid currentColor;border-top:1px solid currentColor;transform:rotate(45deg)}
+.btn-p:hover .btn-arr{width:30px}
+.footer{background:var(--em-d);border-top:1px solid var(--b-em);padding:2.5rem 6vw 1.5rem}
+.ft-bot{display:flex;align-items:center;justify-content:space-between}
+.ft-bot p{font-size:.68rem;font-weight:300;color:var(--t3)}
+.ft-soc{display:flex;gap:.75rem}.ft-soc a{width:36px;height:36px;border:1px solid var(--b-em);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .3s}.ft-soc a svg{width:15px;height:15px;color:var(--t3);transition:color .3s}.ft-soc a:hover{border-color:var(--gold)}.ft-soc a:hover svg{color:var(--gold)}
+@media(max-width:768px){.nav{padding:1rem 1.5rem}.nav-links{display:none}.mob-tog{display:flex}.nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(12,11,10,.97);backdrop-filter:blur(20px);padding:2rem 1.5rem;gap:1.5rem;border-bottom:1px solid var(--b-gold)}.page-hero{padding:8rem 5vw 3rem}.faq-section{padding:3rem 5vw}.cta-banner{flex-direction:column;text-align:center;padding:3rem 5vw}.ft-bot{flex-direction:column;gap:1rem;text-align:center}}
+</style>
+</head>
+<body>
+<nav class="nav">
+<a href="index.html" class="nav-logo"><img src="SMG-logo-ochre-white.png" alt="Steamboat Masters Granite"></a>
+<ul class="nav-links" id="navLinks"><li><a href="index.html#about">About</a></li><li><a href="index.html#services">Services</a></li><li><a href="index.html#gallery">Portfolio</a></li><li><a href="providers.html">Providers</a></li><li><a href="faqs.html" class="active">FAQs</a></li><li><a href="track.html">Track Order</a></li><li><a href="contact.html" class="nav-cta">Free Estimate</a></li></ul>
+<button class="mob-tog" id="mobTog" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<section class="page-hero"><div class="sec-lab"><span class="sec-lab-line"></span><span class="sec-lab-text">Knowledge Base</span></div><h1>Frequently Asked <em>Questions</em></h1><p>Everything you need to know about granite, quartz, and quartzite countertops — from material selection to daily care.</p></section>
+<section class="faq-section"><div class="faq-grid">
+<div class="faq-item"><div class="faq-q"><span class="faq-num">01</span><h3>What is the difference between granite, quartz and quartzite countertops?</h3><div class="faq-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></div><div class="faq-a"><p>Granite is a natural stone highly resistant to heat and scratches. Quartz is engineered stone that offers uniform color and almost no maintenance. Quartzite combines natural movement with durability similar to granite. We guide you based on lifestyle and kitchen use, not just appearance.</p></div></div>
+<div class="faq-item"><div class="faq-q"><span class="faq-num">02</span><h3>Will my countertops stain from wine, coffee or oil?</h3><div class="faq-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></div><div class="faq-a"><p>Quartz is non-porous and will not stain. Granite and quartzite are professionally sealed during installation and resist everyday kitchen spills with normal cleaning.</p></div></div>
+<div class="faq-item"><div class="faq-q"><span class="faq-num">03</span><h3>Do stone countertops require maintenance?</h3><div class="faq-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></div><div class="faq-a"><p>Quartz requires virtually none. Granite and quartzite only need a simple reseal about once per year, a quick process we teach you during installation.</p></div></div>
+<div class="faq-item"><div class="faq-q"><span class="faq-num">04</span><h3>Can I place hot pans directly on the surface?</h3><div class="faq-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></div><div class="faq-a"><p>Granite and quartzite tolerate direct heat very well. Quartz handles moderate heat but using trivets protects the surface long term.</p></div></div>
+<div class="faq-item"><div class="faq-q"><span class="faq-num">05</span><h3>How fast can you complete a project?</h3><div class="faq-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></div><div class="faq-a"><p>Because fabrication is local and in-house, some projects can be fabricated and installed within the same week depending on material and edge details.</p></div></div>
+<div class="faq-item"><div class="faq-q"><span class="faq-num">06</span><h3>Why choose Steamboat Masters Granite instead of a big store?</h3><div class="faq-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></div><div class="faq-a"><p>We are an artisan shop focused on details, not volume production. Our team brings over 30 years of combined experience in fabrication and installation. More than installers, we act as consultants guiding material selection, layout and durability decisions. We treat every project as if it were our own home and stay highly responsive from start to finish.</p></div></div>
+<div class="faq-item"><div class="faq-q"><span class="faq-num">07</span><h3>Will seams be visible?</h3><div class="faq-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></div><div class="faq-a"><p>We digitally measure and plan cuts around veining and lighting to keep seams as discreet as possible and structurally strong.</p></div></div>
+<div class="faq-item"><div class="faq-q"><span class="faq-num">08</span><h3>Is stone worth it compared to cheaper materials?</h3><div class="faq-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></div><div class="faq-a"><p>Lower cost surfaces often need replacement in 5 to 10 years. Stone lasts decades, improves resale value and avoids future renovation costs.</p></div></div>
+<div class="faq-item"><div class="faq-q"><span class="faq-num">09</span><h3>How should I care for my countertops on a daily basis?</h3><div class="faq-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></div><div class="faq-a"><p>Daily care is simple. Clean with warm water and mild dish soap or a pH neutral cleaner using a soft cloth. Avoid harsh chemicals, bleach, oven cleaners or abrasive pads. Quartz does not need sealing. Granite and quartzite only require periodic sealing, but for everyday use just wipe spills normally and dry the surface after heavy water exposure. Using cutting boards and trivets helps preserve the finish long term.</p></div></div>
+<div class="faq-item"><div class="faq-q"><span class="faq-num">10</span><h3>What maintenance do bathroom stone surfaces require?</h3><div class="faq-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></div><div class="faq-a"><p>Bathroom surfaces are low maintenance. Clean with a soft cloth and mild cleaner and avoid acidic or harsh bathroom chemicals directly on the stone. Do not leave standing water around faucets for long periods and dry the area occasionally to prevent mineral buildup. Granite and quartzite benefit from periodic sealing, while quartz requires none.</p></div></div>
+<div class="faq-item"><div class="faq-q"><span class="faq-num">11</span><h3>How do I maintain a full height backsplash in kitchens or bathrooms?</h3><div class="faq-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></div><div class="faq-a"><p>Full height backsplashes are easier to maintain than tile because they eliminate grout lines. Wipe with a soft cloth and mild cleaner and avoid abrasive pads or strong degreasers. Without grout joints, grease, soap residue and moisture cannot accumulate, making cleaning faster and reducing long term maintenance.</p></div></div>
+</div></section>
+<section class="cta-banner"><h2>Still have questions? <em>Let us talk.</em></h2><a href="contact.html" class="btn-p">Contact Us <span class="btn-arr"></span></a></section>
+<footer class="footer"><div class="ft-bot"><p>&copy; 2025 Steamboat Masters Granite. All Rights Reserved.</p><div class="ft-soc"><a href="https://www.facebook.com/SteamboatMastersGranite" aria-label="Facebook"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a><a href="https://www.instagram.com/steamboatmasters/" aria-label="Instagram"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a></div></div></footer>
+<script>
+const mt=document.getElementById('mobTog'),nl=document.getElementById('navLinks');mt.addEventListener('click',()=>nl.classList.toggle('active'));nl.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>nl.classList.remove('active')));
+document.querySelectorAll('.faq-item').forEach(item=>{item.querySelector('.faq-q').addEventListener('click',()=>{const w=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!w)item.classList.add('open')})});
+</script>
+</body></html>

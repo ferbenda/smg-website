@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Track Your Project | Steamboat Masters Granite</title>
+<meta name="description" content="Track the real-time status of your countertop project with Steamboat Masters Granite. Search by project ID or last name to view updates on fabrication, installation, and more.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smg-website-nine.vercel.app/track-project.html">
+<meta name="author" content="Steamboat Masters Granite">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Track Your Project | Steamboat Masters Granite">
+<meta property="og:description" content="Track the real-time status of your countertop project. Search by project ID or last name to view updates.">
+<meta property="og:url" content="https://smg-website-nine.vercel.app/track-project.html">
+<meta property="og:image" content="https://smg-website-nine.vercel.app/SMG-logo-ochre-white.png">
+<link rel="icon" type="image/png" href="SMG-logo-ochre-white.png">
+<link rel="apple-touch-icon" href="SMG-logo-ochre-white.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg1:#0C0B0A;--bg2:#111110;--bg3:#1A1918;--bg4:#232221;
+--em:#163631;--em-d:#0F2723;--em-l:#1E4A43;--em-g:#2A6B60;
+--gold:#C4A265;--gold-l:#D4B97A;--gold-d:#8B7342;
+--t1:#F5F0E8;--t2:#A89F94;--t3:#6B6358;
+--b-gold:rgba(196,162,101,.15);--b-em:rgba(30,74,67,.5);--b-s:rgba(255,255,255,.06);
+--sf:'Cormorant Garamond',Georgia,serif;--sn:'Outfit',sans-serif;
+--ease:cubic-bezier(.25,.46,.45,.94)
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sn);background:var(--bg1);color:var(--t1);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");pointer-events:none;z-index:9999}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--em-l);border-radius:3px}
+img{display:block}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 3.5rem;display:flex;align-items:center;justify-content:space-between;transition:all .5s var(--ease)}
+.nav.scrolled{background:rgba(12,11,10,.93);backdrop-filter:blur(24px);padding:.6rem 3.5rem;border-bottom:1px solid var(--b-gold)}
+.nav-logo{display:flex;align-items:center;text-decoration:none;height:52px}
+.nav-logo img{height:100%;width:auto;object-fit:contain}
+.nav.scrolled .nav-logo{height:40px}
+.nav-links{display:flex;align-items:center;gap:2.5rem;list-style:none}
+.nav-links a{font-size:.7rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--t2);text-decoration:none;transition:color .3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .4s var(--ease)}
+.nav-links a:hover{color:var(--gold-l)}.nav-links a:hover::after{width:100%}
+.nav-cta{color:var(--bg1)!important;background:var(--gold);padding:.65rem 1.8rem;border:1px solid var(--gold);transition:all .4s}
+.nav-cta:hover{background:transparent;color:var(--gold-l)!important}.nav-cta::after{display:none!important}
+.mob-tog{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.mob-tog span{width:24px;height:1.5px;background:var(--t1);transition:all .3s}
+
+/* TRACK PAGE */
+.track-page{max-width:880px;margin:0 auto;padding:9rem 2rem 4rem}
+
+.track-hdr{text-align:center;margin-bottom:4rem}
+.track-label{display:inline-flex;align-items:center;gap:12px;margin-bottom:1.5rem}
+.track-label-line{width:40px;height:1px;background:var(--gold)}
+.track-label-text{font-size:.68rem;font-weight:300;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.track-hdr h1{font-family:var(--sf);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:300;line-height:1.15;margin-bottom:1rem}
+.track-hdr h1 em{font-style:italic;color:var(--gold-l)}
+.track-hdr p{font-size:1rem;font-weight:300;line-height:1.7;color:var(--t2);max-width:560px;margin:0 auto}
+
+.track-search{max-width:480px;margin:0 auto 3rem;position:relative}
+.track-search input{width:100%;padding:1.1rem 7rem 1.1rem 3.2rem;background:var(--bg3);border:1px solid var(--b-gold);color:var(--t1);font-family:var(--sn);font-size:.95rem;font-weight:300;border-radius:0;outline:none;transition:border-color .3s,box-shadow .3s}
+.track-search input::placeholder{color:var(--t3)}
+.track-search input:focus{border-color:var(--gold);box-shadow:0 0 20px rgba(196,162,101,.08)}
+.track-search svg{position:absolute;left:1.1rem;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--t3);pointer-events:none}
+.track-search-btn{position:absolute;right:6px;top:6px;bottom:6px;padding:0 1.4rem;background:var(--em-l);border:none;color:var(--gold-l);font-family:var(--sn);font-size:.78rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.track-search-btn:hover{background:var(--gold);color:var(--bg1)}
+
+.track-loading{text-align:center;padding:5rem 0;display:none}
+.track-loading.show{display:block}
+.track-loading p{font-size:.9rem;color:var(--t3);font-weight:300}
+.spinner{width:28px;height:28px;border:2px solid var(--bg4);border-top-color:var(--gold);border-radius:50%;margin:0 auto 1rem;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.track-empty{text-align:center;padding:5rem 0;display:none}
+.track-empty.show{display:block}
+.track-empty svg{width:44px;height:44px;color:var(--t3);margin-bottom:1rem;opacity:.6}
+.track-empty p{font-size:.95rem;color:var(--t3);font-weight:300}
+.track-empty a{color:var(--gold-l);text-decoration:none}
+.track-empty a:hover{color:var(--gold)}
+
+.track-content{display:none}
+.track-content.show{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* Progress Bar */
+.progress-wrap{margin-bottom:3.5rem}
+.progress-bar{display:flex;align-items:flex-start;justify-content:space-between;position:relative;padding:0 .5rem}
+.progress-bar::before{content:'';position:absolute;top:26px;left:2.5rem;right:2.5rem;height:2px;background:var(--bg4)}
+.progress-fill{position:absolute;top:26px;left:2.5rem;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-l));transition:width 1.4s var(--ease);width:0}
+.progress-step{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:.6rem;flex:1}
+.progress-icon{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .5s var(--ease)}
+.progress-icon svg{width:20px;height:20px;transition:all .3s}
+.progress-icon.done{background:var(--em-l);border:2px solid var(--gold)}
+.progress-icon.done svg{color:var(--gold-l)}
+.progress-icon.active{background:var(--gold);border:2px solid var(--gold-l);box-shadow:0 0 24px rgba(196,162,101,.35);animation:glow 2.5s ease-in-out infinite}
+.progress-icon.active svg{color:var(--bg1)}
+.progress-icon.pending{background:var(--bg3);border:2px solid var(--bg4)}
+.progress-icon.pending svg{color:var(--t3);opacity:.5}
+.progress-label{font-size:.68rem;font-weight:300;letter-spacing:.06em;text-transform:uppercase;color:var(--t3);text-align:center;transition:color .3s}
+.progress-icon.done+.progress-label{color:var(--t2)}
+.progress-icon.active+.progress-label{color:var(--gold-l);font-weight:400}
+@keyframes glow{0%,100%{box-shadow:0 0 20px rgba(196,162,101,.3)}50%{box-shadow:0 0 35px rgba(196,162,101,.55)}}
+
+/* Status Card */
+.status-card{background:var(--bg3);border:1px solid var(--b-em);padding:2.5rem;margin-bottom:3rem;position:relative;overflow:hidden}
+.status-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.status-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:.75rem}
+.status-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem 1rem;font-size:.7rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;border-radius:2px}
+.status-badge svg{width:13px;height:13px}
+.status-badge.in-progress{background:rgba(196,162,101,.12);color:var(--gold-l);border:1px solid var(--b-gold)}
+.status-badge.completed{background:rgba(110,201,168,.1);color:#6ec9a8;border:1px solid rgba(110,201,168,.15)}
+.status-badge.scheduled{background:rgba(138,180,248,.08);color:#8ab4f8;border:1px solid rgba(138,180,248,.12)}
+.status-badge.pending{background:rgba(122,117,112,.08);color:var(--t3);border:1px solid rgba(122,117,112,.1)}
+.status-id{font-size:.72rem;font-weight:300;color:var(--t3);letter-spacing:.08em}
+.status-title{font-family:var(--sf);font-size:1.5rem;font-weight:400;margin-bottom:.75rem;line-height:1.3}
+.status-sub{font-size:.9rem;font-weight:300;color:var(--t2);line-height:1.75;margin-bottom:1.75rem}
+.status-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem}
+.status-meta-item{display:flex;align-items:center;gap:.6rem;padding:.6rem .8rem;background:var(--bg2);border:1px solid var(--b-em)}
+.status-meta-item svg{width:15px;height:15px;color:var(--gold);flex-shrink:0;opacity:.8}
+.status-meta-item span{font-size:.8rem;font-weight:300;color:var(--t2)}
+.status-meta-item strong{color:var(--t1);font-weight:400}
+
+/* Timeline */
+.timeline{margin-bottom:3rem}
+.timeline-title{font-family:var(--sf);font-size:1.25rem;font-weight:400;margin-bottom:2rem;display:flex;align-items:center;gap:.75rem}
+.timeline-title svg{width:18px;height:18px;color:var(--gold)}
+.tl-items{position:relative;padding-left:2.25rem}
+.tl-items::before{content:'';position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:linear-gradient(180deg,var(--gold-d) 0%,var(--b-em) 100%)}
+.tl-item{padding:0 0 2.5rem 1.75rem;position:relative}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{width:11px;height:11px;border-radius:50%;position:absolute;left:-5.5px;top:6px;transition:all .4s}
+.tl-dot.done{background:var(--gold);box-shadow:0 0 8px rgba(196,162,101,.25)}
+.tl-dot.active{background:var(--gold);box-shadow:0 0 14px rgba(196,162,101,.5);animation:glow 2.5s ease-in-out infinite}
+.tl-dot.pending{background:var(--bg4);border:1.5px solid var(--t3)}
+.tl-date{font-size:.7rem;font-weight:300;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:.3rem}
+.tl-text{font-size:.88rem;font-weight:300;line-height:1.75;color:var(--t2)}
+.tl-text strong{color:var(--t1);font-weight:400}
+.tl-item.active .tl-text{color:var(--t1)}
+
+/* Help CTA */
+.track-help{text-align:center;padding:2.5rem;border:1px solid var(--b-em);background:var(--bg2)}
+.track-help p{font-size:.92rem;font-weight:300;color:var(--t2);margin-bottom:1.25rem}
+.track-help-acts{display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+.track-help-acts a{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--sn);font-size:.85rem;font-weight:400;color:var(--gold-l);text-decoration:none;transition:color .3s}
+.track-help-acts a:hover{color:var(--gold)}
+.track-help-acts a svg{width:16px;height:16px}
+.track-help-div{width:1px;height:20px;background:rgba(196,162,101,.2)}
+
+/* FOOTER */
+.footer{background:var(--em-d);border-top:1px solid var(--b-em);padding:4rem 6vw 2rem}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:3rem;margin-bottom:3rem}
+.ft-logo{height:60px;width:auto;margin-bottom:1rem}
+.ft-brand p{font-size:.85rem;font-weight:300;line-height:1.7;color:var(--t2);max-width:340px}
+.ft-col h4{font-size:.63rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
+.ft-col a{display:block;font-size:.82rem;font-weight:300;color:var(--t2);text-decoration:none;margin-bottom:.75rem;transition:color .3s}
+.ft-col a:hover{color:var(--gold-l)}
+.ft-ci{display:flex;align-items:flex-start;gap:.75rem;margin-bottom:1rem}
+.ft-ci-ic{width:16px;height:16px;color:var(--em-g);flex-shrink:0;margin-top:2px}
+.ft-ci p,.ft-ci a{font-size:.82rem;font-weight:300;line-height:1.5;color:var(--t2);display:inline;margin:0;text-decoration:none}
+.ft-ci a:hover{color:var(--gold-l)}
+.ft-bot{padding-top:2rem;border-top:1px solid var(--b-em);display:flex;align-items:center;justify-content:space-between}
+.ft-bot p{font-size:.68rem;font-weight:300;color:var(--t3)}
+.ft-soc{display:flex;gap:.75rem}
+.ft-soc a{width:36px;height:36px;border:1px solid var(--b-em);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .3s}
+.ft-soc a svg{width:15px;height:15px;color:var(--t3);transition:color .3s}
+.ft-soc a:hover{border-color:var(--gold)}.ft-soc a:hover svg{color:var(--gold)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){.nav{padding:1rem 2rem}.nav.scrolled{padding:.6rem 2rem}.nav-links{gap:1.5rem}.ft-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){
+.nav{padding:1rem 1.5rem}.nav-links{display:none}.mob-tog{display:flex}
+.nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(12,11,10,.97);backdrop-filter:blur(20px);padding:2rem 1.5rem;gap:1.5rem;border-bottom:1px solid var(--b-gold)}
+.track-page{padding:7rem 1.25rem 3rem}
+.progress-bar{padding:0}
+.progress-icon{width:40px;height:40px}
+.progress-icon svg{width:16px;height:16px}
+.progress-label{font-size:.58rem}
+.status-card{padding:2rem 1.5rem}
+.status-meta{grid-template-columns:1fr}
+.track-help-acts{flex-direction:column;gap:1rem}
+.track-help-div{width:40px;height:1px}
+.ft-grid{grid-template-columns:1fr;gap:2rem}
+.ft-bot{flex-direction:column;gap:1rem;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="navbar">
+<a href="index.html" class="nav-logo"><img src="SMG-logo-ochre-white.png" alt="Steamboat Masters Granite"></a>
+<ul class="nav-links" id="navLinks">
+<li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="index.html#gallery">Portfolio</a></li><li><a href="providers.html">Providers</a></li><li><a href="faqs.html">FAQs</a></li><li><a href="track-project.html">Track Project</a></li><li><a href="contact.html" class="nav-cta">Free Estimate</a></li>
+</ul>
+<button class="mob-tog" id="mobTog" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="track-page">
+
+<!-- Header -->
+<div class="track-hdr">
+<div class="track-label"><span class="track-label-line"></span><span class="track-label-text">Project Status</span><span class="track-label-line"></span></div>
+<h1>Track Your <em>Project</em></h1>
+<p>Enter your project ID or last name to see real-time updates on your countertop project.</p>
+</div>
+
+<!-- Search -->
+<div class="track-search">
+<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+<input type="text" placeholder="Project ID or last name..." id="trackInput" onkeydown="if(event.key==='Enter')searchProject()">
+<button class="track-search-btn" onclick="searchProject()">Search</button>
+</div>
+
+<!-- Loading -->
+<div class="track-loading" id="trackLoading"><div class="spinner"></div><p>Loading project...</p></div>
+
+<!-- Empty -->
+<div class="track-empty" id="trackEmpty">
+<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+<p>No project found. Check your ID or last name, or <a href="tel:5202233049">give us a call</a>.</p>
+</div>
+
+<!-- Project Content -->
+<div class="track-content show" id="trackContent">
+
+<!-- Progress Bar -->
+<div class="progress-wrap">
+<div class="progress-bar">
+<div class="progress-fill" id="progressFill" style="width:47%"></div>
+<div class="progress-step"><div class="progress-icon done" id="prog-1"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div><span class="progress-label">Estimate</span></div>
+<div class="progress-step"><div class="progress-icon done" id="prog-2"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div><span class="progress-label">Material</span></div>
+<div class="progress-step"><div class="progress-icon active" id="prog-3"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 17L12 22L22 17M2 12L12 17L22 12M12 2L2 7L12 12L22 7L12 2Z"/></svg></div><span class="progress-label">Fabrication</span></div>
+<div class="progress-step"><div class="progress-icon pending" id="prog-4"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9L12 2L21 9V20C21 20.53 20.79 21.04 20.41 21.41C20.04 21.79 19.53 22 19 22H5C4.47 22 3.96 21.79 3.59 21.41C3.21 21.04 3 20.53 3 20V9Z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><span class="progress-label">Installation</span></div>
+<div class="progress-step"><div class="progress-icon pending" id="prog-5"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div><span class="progress-label">Complete</span></div>
+</div>
+</div>
+
+<!-- Status Card -->
+<div class="status-card" id="statusCard">
+<div class="status-top">
+<div class="status-badge in-progress"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>In Progress</div>
+<span class="status-id">SMG-2026-0218</span>
+</div>
+<div class="status-title">Kitchen & Island — Quartz (Cambria Ella)</div>
+<div class="status-sub">Your slabs arrived at our Steamboat Springs facility on Feb 18. Edge profiling and sink cutouts are currently underway. Estimated fabrication completion: Feb 27.</div>
+<div class="status-meta">
+<div class="status-meta-item"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg><span><strong>Client:</strong> Johnson Residence</span></div>
+<div class="status-meta-item"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span><strong>Started:</strong> Feb 3, 2026</span></div>
+<div class="status-meta-item"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg><span><strong>Location:</strong> Steamboat Springs</span></div>
+<div class="status-meta-item"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg><span><strong>Warranty:</strong> Lifetime</span></div>
+</div>
+</div>
+
+<!-- Activity Timeline -->
+<div class="timeline" id="timeline">
+<div class="timeline-title"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Project Updates</div>
+<div class="tl-items">
+<div class="tl-item active"><div class="tl-dot active"></div><div class="tl-date">Feb 22, 2026</div><div class="tl-text"><strong>Edge profiling in progress</strong> — Waterfall mitre edge on island, eased edge on perimeter. Sink cutout for Kohler undermount scheduled for tomorrow morning.</div></div>
+<div class="tl-item done"><div class="tl-dot done"></div><div class="tl-date">Feb 18, 2026</div><div class="tl-text"><strong>Slabs received & inspected</strong> — Both Cambria Ella slabs arrived in perfect condition. QC passed. Cut layout mapped to maximize veining flow across the island.</div></div>
+<div class="tl-item done"><div class="tl-dot done"></div><div class="tl-date">Feb 10, 2026</div><div class="tl-text"><strong>On-site template completed</strong> — Full template captured at residence. Island confirmed at 96" × 42" with waterfall on both ends. Backsplash height: 4 inches.</div></div>
+<div class="tl-item done"><div class="tl-dot done"></div><div class="tl-date">Feb 6, 2026</div><div class="tl-text"><strong>Material secured</strong> — Cambria Ella — 2 slabs, Lot #EL-4429. Reserved from Cambria Denver distribution center. Delivery confirmed Feb 17–18.</div></div>
+<div class="tl-item done"><div class="tl-dot done"></div><div class="tl-date">Feb 3, 2026</div><div class="tl-text"><strong>Estimate approved — project started</strong> — Kitchen perimeter + island + waterfall edges. Estimate #EST-2026-0218 approved. Welcome aboard!</div></div>
+</div>
+</div>
+
+</div>
+
+<!-- Help -->
+<div class="track-help">
+<p>Have a question about your project? We're always here.</p>
+<div class="track-help-acts">
+<a href="tel:5202233049"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>(520) 223-3049</a>
+<span class="track-help-div"></span>
+<a href="contact.html"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Send Us a Message</a>
+</div>
+</div>
+
+</div>
+
+<footer class="footer">
+<div class="ft-grid">
+<div class="ft-brand"><img src="SMG-logo-text-ochre-white.png" alt="Steamboat Masters Granite" class="ft-logo"><p>Premium custom countertops crafted with over 25 years of combined experience. Proudly serving Steamboat Springs and all of Colorado.</p></div>
+<div class="ft-col"><h4>Navigation</h4><a href="about.html">About Us</a><a href="services.html">Services</a><a href="index.html#gallery">Portfolio</a><a href="granite.html">Materials</a><a href="index.html#process">Our Process</a></div>
+<div class="ft-col"><h4>Resources</h4><a href="faqs.html">FAQs</a><a href="providers.html">Our Providers</a><a href="track-project.html">Track Your Project</a><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a></div>
+<div class="ft-col"><h4>Contact</h4>
+<div class="ft-ci"><svg class="ft-ci-ic" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><p><a href="tel:5202233049">(520) 223-3049</a></p></div>
+<div class="ft-ci"><svg class="ft-ci-ic" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><p><a href="mailto:info@steamboatmastersgranite.com">info@steamboatmastersgranite.com</a></p></div>
+<div class="ft-ci"><svg class="ft-ci-ic" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><p>Steamboat Springs, Colorado</p></div>
+</div>
+</div>
+<div class="ft-bot">
+<p>&copy; 2025 Steamboat Masters Granite. All Rights Reserved.</p>
+<div class="ft-soc">
+<a href="https://www.facebook.com/SteamboatMastersGranite" aria-label="Facebook"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+<a href="https://www.instagram.com/steamboatmasters/" aria-label="Instagram"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+<a href="https://www.google.com/search?q=steamboat+masters+granite" aria-label="Google"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></a>
+</div>
+</div>
+</footer>
+
+<script>
+// Nav
+const nb=document.getElementById('navbar');window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',scrollY>60));
+const mt=document.getElementById('mobTog'),nl=document.getElementById('navLinks');
+mt.addEventListener('click',()=>nl.classList.toggle('active'));
+nl.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>nl.classList.remove('active')));
+
+/*
+  GOOGLE SHEETS — 2 tabs:
+
+  Tab 1: "projects"
+  A: project_id | B: client_name | C: client_search | D: status
+  E: status_label | F: project_title | G: description
+  H: start_date | I: location | J: current_step (1-5)
+
+  Tab 2: "activity"
+  A: project_id | B: date | C: dot_status | D: title | E: description
+
+  Setup: Create Sheet → Publish to web → Paste ID below
+*/
+const SHEET_ID = 'YOUR_GOOGLE_SHEET_ID_HERE';
+const projectsURL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=projects`;
+const activityURL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=activity`;
+
+function parseSheet(text) {
+  const json = JSON.parse(text.substring(47).slice(0, -2));
+  const cols = json.table.cols.map(c => c.label);
+  return json.table.rows.map(r => {
+    const o = {};
+    r.c.forEach((c, i) => o[cols[i] || `col${i}`] = c ? (c.v || '') : '');
+    return o;
+  });
+}
+
+async function searchProject() {
+  const q = document.getElementById('trackInput').value.trim().toLowerCase();
+  if (!q) return;
+  document.getElementById('trackLoading').classList.add('show');
+  document.getElementById('trackContent').classList.remove('show');
+  document.getElementById('trackEmpty').classList.remove('show');
+  try {
+    const [projects, activity] = await Promise.all([
+      fetch(projectsURL).then(r => r.text()).then(parseSheet),
+      fetch(activityURL).then(r => r.text()).then(parseSheet)
+    ]);
+    const proj = projects.find(p =>
+      p.project_id?.toLowerCase() === q ||
+      p.client_search?.toLowerCase().includes(q) ||
+      p.client_name?.toLowerCase().includes(q)
+    );
+    document.getElementById('trackLoading').classList.remove('show');
+    if (!proj) { document.getElementById('trackEmpty').classList.add('show'); return; }
+    render(proj, activity.filter(a => a.project_id === proj.project_id));
+    document.getElementById('trackContent').classList.add('show');
+  } catch (e) {
+    document.getElementById('trackLoading').classList.remove('show');
+    showDemo();
+    document.getElementById('trackContent').classList.add('show');
+  }
+}
+
+function render(proj, activity) {
+  const step = parseInt(proj.current_step) || 1;
+  const fills = [0, 0, 22, 47, 72, 100];
+  document.getElementById('progressFill').style.width = fills[step] + '%';
+  for (let i = 1; i <= 5; i++) {
+    document.getElementById(`prog-${i}`).className = 'progress-icon ' + (i < step ? 'done' : i === step ? 'active' : 'pending');
+  }
+  document.getElementById('statusCard').innerHTML = `
+    <div class="status-top">
+      <div class="status-badge ${proj.status}"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>${proj.status_label}</div>
+      <span class="status-id">${proj.project_id}</span>
+    </div>
+    <div class="status-title">${proj.project_title}</div>
+    <div class="status-sub">${proj.description}</div>
+    <div class="status-meta">
+      <div class="status-meta-item"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg><span><strong>Client:</strong> ${proj.client_name}</span></div>
+      <div class="status-meta-item"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span><strong>Started:</strong> ${proj.start_date}</span></div>
+      <div class="status-meta-item"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg><span><strong>Location:</strong> ${proj.location}</span></div>
+      <div class="status-meta-item"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg><span><strong>Warranty:</strong> Lifetime</span></div>
+    </div>`;
+  let html = `<div class="timeline-title"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Project Updates</div><div class="tl-items">`;
+  activity.forEach(a => {
+    html += `<div class="tl-item ${a.dot_status}"><div class="tl-dot ${a.dot_status}"></div><div class="tl-date">${a.date}</div><div class="tl-text"><strong>${a.title}</strong> — ${a.description}</div></div>`;
+  });
+  html += '</div>';
+  document.getElementById('timeline').innerHTML = html;
+}
+
+function showDemo() {
+  render(
+    { project_id:'SMG-2026-0218', client_name:'Johnson Residence', status:'in-progress', status_label:'In Progress', project_title:'Kitchen & Island — Quartz (Cambria Ella)', description:'Your slabs arrived at our Steamboat Springs facility on Feb 18. Edge profiling and sink cutouts are currently underway. Estimated fabrication completion: Feb 27.', start_date:'Feb 3, 2026', location:'Steamboat Springs', current_step:'3' },
+    [
+      { date:'Feb 22, 2026', dot_status:'active', title:'Edge profiling in progress', description:'Waterfall mitre edge on island, eased edge on perimeter. Sink cutout for Kohler undermount scheduled for tomorrow morning.' },
+      { date:'Feb 18, 2026', dot_status:'done', title:'Slabs received & inspected', description:'Both Cambria Ella slabs arrived in perfect condition. QC passed. Cut layout mapped to maximize veining flow across the island.' },
+      { date:'Feb 10, 2026', dot_status:'done', title:'On-site template completed', description:'Full template captured at residence. Island confirmed at 96" × 42" with waterfall on both ends. Backsplash height: 4 inches.' },
+      { date:'Feb 6, 2026', dot_status:'done', title:'Material secured', description:'Cambria Ella — 2 slabs, Lot #EL-4429. Reserved from Cambria Denver distribution center. Delivery confirmed Feb 17–18.' },
+      { date:'Feb 3, 2026', dot_status:'done', title:'Estimate approved — project started', description:'Kitchen perimeter + island + waterfall edges. Estimate #EST-2026-0218 approved. Welcome aboard!' }
+    ]
+  );
+}
+
+// Auto-load demo
+window.addEventListener('DOMContentLoaded', () => { showDemo(); document.getElementById('trackContent').classList.add('show'); });
+</script>
+
+</body>
+</html>

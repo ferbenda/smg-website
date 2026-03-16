@@ -266,15 +266,14 @@ _dr.forEach(drop=>{
   drop.querySelector('a').addEventListener('click',(e)=>{
     if(window.innerWidth>768)return;
     e.preventDefault();
-    const dd=drop.querySelector('.nav-dd'),open=drop.classList.contains('mob-open');
+    const dd=drop.querySelector('.nav-dd'),isOpen=drop.classList.contains('mob-open');
     _dr.forEach(d=>{d.classList.remove('mob-open');const x=d.querySelector('.nav-dd');if(x)x.classList.remove('mob-open');});
-    if(!open){drop.classList.add('mob-open');if(dd)dd.classList.add('mob-open');}
+    if(!isOpen){drop.classList.add('mob-open');if(dd)dd.classList.add('mob-open');}
   });
 });
-document.addEventListener('click',(e)=>{if(!e.target.closest('.nav-drop'))_dr.classList.remove('open');});
 document.addEventListener('click',(e)=>{if(!e.target.closest('.nav-drop'))_dr.forEach(d=>d.classList.remove('open'));});
 _nl.querySelectorAll('a:not(.nav-drop>a)').forEach(a=>a.addEventListener('click',()=>_nl.classList.remove('active')));
-window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>50)););
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>50));
 const rvs=document.querySelectorAll('.rv');
 rvs.forEach(el=>el.classList.add('ready'));
 const ro=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('vis'),i*80);ro.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});

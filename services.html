@@ -56,10 +56,11 @@
 .svc-tag{font-size:.6rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--em-g);background:rgba(42,107,96,.1);padding:.25rem .5rem}
 /* EDGES */
 .edges-sec{padding:5rem 6vw;background:var(--bg2);border-top:1px solid rgba(255,255,255,.04)}
-.edges-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1.5rem;margin-top:3rem}
-.edge-card{text-align:center;padding:1.5rem 1rem;background:var(--bg3);border:1px solid rgba(255,255,255,.03);transition:all .4s}
+.edges-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1.25rem;margin-top:3rem}
+.edge-card{text-align:center;padding:1.75rem 1rem 1.25rem;background:var(--bg3);border:1px solid rgba(255,255,255,.04);transition:all .4s;cursor:default}
 .edge-card:hover{background:var(--em-d);border-color:var(--b-em)}
-.edge-visual{width:80px;height:50px;margin:0 auto 1rem;background:linear-gradient(135deg,var(--em-d),var(--bg3));border-radius:0;position:relative;overflow:hidden}
+.edge-card:hover svg .stone{stroke:#D4B97A}
+.edge-card svg{display:block;margin:0 auto 1rem}
 .edge-card h4{font-family:var(--sf);font-size:1rem;font-weight:400;margin-bottom:.25rem}
 .edge-card p{font-size:.68rem;font-weight:300;color:var(--t3)}
 .btn-p{display:inline-flex;align-items:center;gap:10px;font-family:var(--sn);font-size:.72rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--bg1);background:var(--gold);padding:1rem 2.4rem;text-decoration:none;border:1px solid var(--gold);transition:all .4s}.btn-p:hover{background:var(--gold-l);transform:translateY(-2px);box-shadow:0 8px 30px rgba(196,162,101,.2)}.btn-arr{width:20px;height:1px;background:currentColor;position:relative;transition:width .3s}.btn-arr::after{content:'';position:absolute;right:0;top:-3px;width:7px;height:7px;border-right:1px solid currentColor;border-top:1px solid currentColor;transform:rotate(45deg)}.btn-p:hover .btn-arr{width:30px}
@@ -144,16 +145,120 @@
 <h2 style="font-family:var(--sf);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:300;margin-bottom:.5rem">Custom <em style="font-style:italic;color:var(--gold-l)">Edge</em> Profiles</h2>
 <p style="font-size:.9rem;font-weight:300;color:var(--t2);max-width:500px">The edge defines the character. Choose from our full range of profiles, or request a custom design.</p>
 <div class="edges-grid">
-<div class="edge-card"><div class="edge-visual" style="border-radius:0"></div><h4>Eased</h4><p>Clean, minimal</p></div>
-<div class="edge-card"><div class="edge-visual" style="border-radius:25px 0 0 0"></div><h4>Full Bullnose</h4><p>Smooth, rounded</p></div>
-<div class="edge-card"><div class="edge-visual" style="border-radius:12px 0 0 0"></div><h4>Half Bullnose</h4><p>Soft, subtle curve</p></div>
-<div class="edge-card"><div class="edge-visual" style="border-radius:0;border-top:3px solid var(--gold-d)"></div><h4>Bevel</h4><p>Angled cut</p></div>
-<div class="edge-card"><div class="edge-visual" style="border-radius:15px 0 0 15px"></div><h4>Ogee</h4><p>Classic S-curve</p></div>
-<div class="edge-card"><div class="edge-visual" style="border-radius:8px 0 0 0;border-bottom:3px solid var(--gold-d)"></div><h4>Dupont</h4><p>Stepped elegance</p></div>
-<div class="edge-card"><div class="edge-visual" style="border-radius:0;height:80px"></div><h4>Mitered</h4><p>Thick slab look</p></div>
-<div class="edge-card"><div class="edge-visual" style="border-radius:0;height:80px;border-right:2px solid var(--gold-d)"></div><h4>Waterfall</h4><p>Floor cascade</p></div>
-<div class="edge-card"><div class="edge-visual" style="border-radius:0;height:80px"></div><h4>Laminated</h4><p>Double thickness</p></div>
-<div class="edge-card"><div class="edge-visual" style="border-radius:0;border-left:3px dashed var(--gold-d)"></div><h4>Chiseled</h4><p>Raw, natural</p></div>
+
+<!-- EASED -->
+<div class="edge-card">
+<svg width="100" height="70" viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="70" height="30" fill="#1A1918" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <line x1="80" y1="10" x2="80" y2="40" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <line x1="10" y1="40" x2="80" y2="40" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <line x1="10" y1="10" x2="80" y2="10" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <rect x="78" y="38" width="4" height="4" rx="1" fill="#C4A265" opacity=".5"/>
+</svg>
+<h4>Eased</h4><p>Clean, minimal</p></div>
+
+<!-- FULL BULLNOSE -->
+<div class="edge-card">
+<svg width="100" height="70" viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M10 10 H65 Q80 10 80 25 Q80 40 65 40 H10 Z" fill="#1A1918" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <line x1="10" y1="10" x2="10" y2="40" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+</svg>
+<h4>Full Bullnose</h4><p>Smooth, rounded</p></div>
+
+<!-- HALF BULLNOSE -->
+<div class="edge-card">
+<svg width="100" height="70" viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M10 10 H70 Q80 10 80 20 L80 40 H10 Z" fill="#1A1918" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <line x1="10" y1="10" x2="10" y2="40" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <line x1="10" y1="40" x2="80" y2="40" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+</svg>
+<h4>Half Bullnose</h4><p>Soft top curve</p></div>
+
+<!-- BEVEL -->
+<div class="edge-card">
+<svg width="100" height="70" viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M10 10 H68 L80 22 L80 40 H10 Z" fill="#1A1918" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <line x1="10" y1="10" x2="10" y2="40" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <line x1="10" y1="40" x2="80" y2="40" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <line x1="68" y1="10" x2="80" y2="22" stroke="#D4B97A" stroke-width="2" stroke-linecap="round" class="stone"/>
+</svg>
+<h4>Bevel</h4><p>Angled top cut</p></div>
+
+<!-- OGEE -->
+<div class="edge-card">
+<svg width="100" height="70" viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M10 10 H68 Q78 10 78 18 Q78 25 70 25 Q80 25 80 33 Q80 40 70 40 H10 Z" fill="#1A1918" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <line x1="10" y1="10" x2="10" y2="40" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+</svg>
+<h4>Ogee</h4><p>Classic S-curve</p></div>
+
+<!-- DUPONT -->
+<div class="edge-card">
+<svg width="100" height="70" viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M10 10 H72 L80 18 L80 28 H68 L68 40 H10 Z" fill="#1A1918" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <line x1="10" y1="10" x2="10" y2="40" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+</svg>
+<h4>Dupont</h4><p>Stepped elegance</p></div>
+
+<!-- MITERED -->
+<div class="edge-card">
+<svg width="100" height="70" viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Top slab -->
+  <rect x="10" y="8" width="70" height="18" fill="#1A1918" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <!-- Bottom mitered piece -->
+  <rect x="68" y="26" width="12" height="30" fill="#1A1918" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <line x1="10" y1="8" x2="10" y2="26" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+</svg>
+<h4>Mitered</h4><p>Thick slab look</p></div>
+
+<!-- MITERED 45 -->
+<div class="edge-card">
+<svg width="100" height="70" viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Top horizontal slab -->
+  <path d="M10 10 H80 L80 26 L68 26 L56 38 H10 Z" fill="#1A1918" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <!-- Vertical piece -->
+  <path d="M56 38 L68 26 L68 58 L56 58 Z" fill="#1A1918" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <!-- 45° miter line highlighted -->
+  <line x1="68" y1="26" x2="56" y2="38" stroke="#D4B97A" stroke-width="2" stroke-linecap="round"/>
+  <line x1="10" y1="10" x2="10" y2="38" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <!-- angle indicator -->
+  <text x="62" y="24" font-size="7" fill="#D4B97A" font-family="Outfit,sans-serif">45°</text>
+</svg>
+<h4>Mitered 45</h4><p>45° angled joint</p></div>
+
+<!-- WATERFALL -->
+<div class="edge-card">
+<svg width="100" height="70" viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Top slab -->
+  <rect x="10" y="10" width="70" height="18" fill="#1A1918" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <!-- Vertical waterfall piece -->
+  <rect x="70" y="10" width="12" height="52" fill="#1A1918" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <line x1="10" y1="10" x2="10" y2="28" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <line x1="10" y1="28" x2="70" y2="28" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+</svg>
+<h4>Waterfall</h4><p>Floor cascade</p></div>
+
+<!-- LAMINATED -->
+<div class="edge-card">
+<svg width="100" height="70" viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Top slab -->
+  <rect x="10" y="10" width="70" height="16" fill="#1A1918" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <!-- Bottom laminated piece -->
+  <rect x="10" y="26" width="70" height="16" fill="#1A1918" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <!-- seam line -->
+  <line x1="10" y1="26" x2="80" y2="26" stroke="#D4B97A" stroke-width="1" stroke-dasharray="3 2" opacity=".6"/>
+  <line x1="10" y1="10" x2="10" y2="42" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+</svg>
+<h4>Laminated</h4><p>Double thickness</p></div>
+
+<!-- CHISELED -->
+<div class="edge-card">
+<svg width="100" height="70" viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M10 10 H70 L72 14 L68 18 L74 22 L70 26 L76 30 L72 34 L78 38 L73 40 H10 Z" fill="#1A1918" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+  <line x1="10" y1="10" x2="10" y2="40" stroke="#C4A265" stroke-width="1.5" class="stone"/>
+</svg>
+<h4>Chiseled</h4><p>Raw, natural</p></div>
+
 </div></section>
 <section class="cta-banner"><h2>Ready to start your <em>project?</em></h2><a href="contact.html" class="btn-p">Get a Free Quote <span class="btn-arr"></span></a></section>
 <footer class="footer"><div class="ft-bot"><p>&copy; 2025 Steamboat Masters Granite. All Rights Reserved.</p></div></footer>

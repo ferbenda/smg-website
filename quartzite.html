@@ -45,27 +45,24 @@
   <li><a href="about.html">About</a></li>
   <li class="nav-drop">
     <a href="services.html">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
-    <div class="nav-dd">
-      <a href="services.html">All Services</a>
+    <div class="nav-dd"><div class="nav-dd-inner"><a href="services.html">All Services</a>
       <div class="nav-dd-div"></div>
       <a href="process.html">Our Process</a>
       <a href="faqs.html">FAQs</a>
       <a href="track-project.html">Track Project</a>
-    </div>
+    </div></div>
   </li>
   <li class="nav-drop">
     <a href="#">Materials <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
-    <div class="nav-dd">
-      <a href="granite.html">Granite</a>
+    <div class="nav-dd"><div class="nav-dd-inner"><a href="granite.html">Granite</a>
       <a href="quartz.html">Quartz</a>
       <a href="quartzite.html">Quartzite</a>
       <a href="other-materials.html">Other Materials</a>
-    </div>
+    </div></div>
   </li>
   <li class="nav-drop">
     <a href="providers.html">Providers <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
-    <div class="nav-dd">
-      <a href="providers.html">All Providers</a>
+    <div class="nav-dd"><div class="nav-dd-inner"><a href="providers.html">All Providers</a>
       <div class="nav-dd-div"></div>
       <div class="nav-dd-label">Colorado</div>
       <a href="cambria-provider.html">Cambria</a>
@@ -79,7 +76,7 @@
       <a href="porcelanosa-provider.html">Porcelanosa</a>
       <a href="stone-collection-provider.html">Stone Collection</a>
       <a href="francini-provider.html">Francini</a>
-    </div>
+    </div></div>
   </li>
   <li><a href="index.html#gallery">Portfolio</a></li>
   <li><a href="locations.html">Coverage</a></li>
@@ -103,24 +100,25 @@
 <footer class="footer"><div class="ft-bot"><p>&copy; 2025 Steamboat Masters Granite. All Rights Reserved.</p></div></footer>
 <script>const _navMt=document.getElementById('mobTog'),_navNl=document.getElementById('navLinks');
 _navMt.addEventListener('click',()=>_navNl.classList.toggle('active'));
-// Dropdown with close delay
 const _drops=document.querySelectorAll('.nav-drop');
 _drops.forEach(drop=>{
-  let closeTimer=null;
-  const open=()=>{clearTimeout(closeTimer);_drops.forEach(d=>d!==drop&&d.classList.remove('open'));drop.classList.add('open');};
-  const close=()=>{closeTimer=setTimeout(()=>drop.classList.remove('open'),180);};
-  drop.addEventListener('mouseenter',open);
-  drop.addEventListener('mouseleave',close);
-  // Mobile tap
+  let _t=null;
+  drop.addEventListener('mouseenter',()=>{
+    clearTimeout(_t);
+    _drops.forEach(d=>{if(d!==drop)d.classList.remove('open');});
+    drop.classList.add('open');
+  });
+  drop.addEventListener('mouseleave',()=>{
+    _t=setTimeout(()=>drop.classList.remove('open'),300);
+  });
   drop.querySelector('a').addEventListener('click',(e)=>{
     if(window.innerWidth>768)return;
     e.preventDefault();
     const dd=drop.querySelector('.nav-dd'),isOpen=drop.classList.contains('mob-open');
-    _drops.forEach(el=>{el.classList.remove('mob-open');el.querySelector('.nav-dd').classList.remove('mob-open');});
-    if(!isOpen){drop.classList.add('mob-open');dd.classList.add('mob-open');}
+    _drops.forEach(el=>{el.classList.remove('mob-open');const d=el.querySelector('.nav-dd');if(d)d.classList.remove('mob-open');});
+    if(!isOpen){drop.classList.add('mob-open');if(dd)dd.classList.add('mob-open');}
   });
 });
-// Close on outside click
 document.addEventListener('click',(e)=>{if(!e.target.closest('.nav-drop'))_drops.forEach(d=>d.classList.remove('open'));});
 _navNl.querySelectorAll('a:not(.nav-drop>a)').forEach(l=>l.addEventListener('click',()=>_navNl.classList.remove('active')));
 window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>50)););</script>

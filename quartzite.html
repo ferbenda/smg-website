@@ -103,15 +103,25 @@
 <footer class="footer"><div class="ft-bot"><p>&copy; 2025 Steamboat Masters Granite. All Rights Reserved.</p></div></footer>
 <script>const _navMt=document.getElementById('mobTog'),_navNl=document.getElementById('navLinks');
 _navMt.addEventListener('click',()=>_navNl.classList.toggle('active'));
-_navNl.querySelectorAll('.nav-drop>a').forEach(a=>{
-  a.addEventListener('click',(e)=>{
+// Dropdown with close delay
+const _drops=document.querySelectorAll('.nav-drop');
+_drops.forEach(drop=>{
+  let closeTimer=null;
+  const open=()=>{clearTimeout(closeTimer);_drops.forEach(d=>d!==drop&&d.classList.remove('open'));drop.classList.add('open');};
+  const close=()=>{closeTimer=setTimeout(()=>drop.classList.remove('open'),180);};
+  drop.addEventListener('mouseenter',open);
+  drop.addEventListener('mouseleave',close);
+  // Mobile tap
+  drop.querySelector('a').addEventListener('click',(e)=>{
     if(window.innerWidth>768)return;
     e.preventDefault();
-    const li=a.parentElement,dd=li.querySelector('.nav-dd'),isOpen=li.classList.contains('mob-open');
-    _navNl.querySelectorAll('.nav-drop').forEach(el=>{el.classList.remove('mob-open');el.querySelector('.nav-dd').classList.remove('mob-open');});
-    if(!isOpen){li.classList.add('mob-open');dd.classList.add('mob-open');}
+    const dd=drop.querySelector('.nav-dd'),isOpen=drop.classList.contains('mob-open');
+    _drops.forEach(el=>{el.classList.remove('mob-open');el.querySelector('.nav-dd').classList.remove('mob-open');});
+    if(!isOpen){drop.classList.add('mob-open');dd.classList.add('mob-open');}
   });
 });
+// Close on outside click
+document.addEventListener('click',(e)=>{if(!e.target.closest('.nav-drop'))_drops.forEach(d=>d.classList.remove('open'));});
 _navNl.querySelectorAll('a:not(.nav-drop>a)').forEach(l=>l.addEventListener('click',()=>_navNl.classList.remove('active')));
 window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>50)););</script>
 </body></html>

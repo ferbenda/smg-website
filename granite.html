@@ -13,13 +13,32 @@ body{font-family:var(--sn);background:var(--bg1);color:var(--t1);overflow-x:hidd
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");pointer-events:none;z-index:9999}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--em-l);border-radius:3px}
 img{display:block;max-width:100%}
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 3.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(12,11,10,.93);backdrop-filter:blur(24px);border-bottom:1px solid var(--b-gold)}
-.nav-logo{display:flex;align-items:center;text-decoration:none;height:40px}.nav-logo img{height:100%;width:auto;object-fit:contain}
-.nav-links{display:flex;align-items:center;gap:2.5rem;list-style:none}
-.nav-links a{font-size:.7rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--t2);text-decoration:none;transition:color .3s;position:relative}
-.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .4s var(--ease)}.nav-links a:hover{color:var(--gold-l)}.nav-links a:hover::after{width:100%}
-.nav-cta{color:var(--bg1)!important;background:var(--gold);padding:.65rem 1.8rem;border:1px solid var(--gold);transition:all .4s}.nav-cta:hover{background:transparent;color:var(--gold-l)!important}.nav-cta::after{display:none!important}
-.mob-tog{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}.mob-tog span{width:24px;height:1.5px;background:var(--t1)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 3.5rem;display:flex;align-items:center;justify-content:space-between;transition:all .5s cubic-bezier(.25,.46,.45,.94);background:rgba(12,11,10,.95);backdrop-filter:blur(24px);border-bottom:1px solid rgba(196,162,101,.15)}
+.nav.scrolled{background:rgba(12,11,10,.98);padding:.7rem 3.5rem}
+.nav-logo{display:flex;align-items:center;text-decoration:none;height:40px}
+.nav-logo img{height:100%;width:auto;object-fit:contain}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links>li{position:relative}
+.nav-links a{font-size:.7rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:#A89F94;text-decoration:none;transition:color .3s;position:relative;white-space:nowrap}
+.nav-links>li>a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:#C4A265;transition:width .4s cubic-bezier(.25,.46,.45,.94)}
+.nav-links>li>a:hover,.nav-links>li>a.active{color:#D4B97A}
+.nav-links>li>a:hover::after,.nav-links>li>a.active::after{width:100%}
+.nav-drop>a{display:flex;align-items:center;gap:5px;cursor:pointer}
+.nav-drop>a svg{width:10px;height:10px;transition:transform .3s;flex-shrink:0}
+.nav-drop:hover>a svg{transform:rotate(180deg)}
+.nav-drop:hover>a{color:#D4B97A}
+.nav-dd{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(-6px);background:rgba(12,11,10,.97);backdrop-filter:blur(20px);border:1px solid rgba(196,162,101,.15);padding:.5rem 0;min-width:200px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.nav-drop:hover .nav-dd{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.nav-dd a{display:block;padding:.55rem 1.25rem;font-size:.65rem;font-weight:300;letter-spacing:.14em;text-transform:uppercase;color:#A89F94;text-decoration:none;transition:all .2s;white-space:nowrap}
+.nav-dd a:hover{color:#D4B97A;background:rgba(196,162,101,.06);padding-left:1.5rem}
+.nav-dd-div{height:1px;background:rgba(196,162,101,.15);margin:.3rem 1.25rem}
+.nav-dd-label{padding:.4rem 1.25rem .1rem;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:#6B6358;font-weight:400}
+.nav-cta{color:#0C0B0A!important;background:#C4A265;padding:.65rem 1.8rem;border:1px solid #C4A265;transition:all .4s}
+.nav-cta:hover{background:transparent;color:#D4B97A!important}.nav-cta::after{display:none!important}
+.mob-tog{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.mob-tog span{width:24px;height:1.5px;background:#F5F0E8;transition:all .3s}
+@media(max-width:1024px){.nav{padding:1rem 2rem}.nav.scrolled{padding:.6rem 2rem}.nav-links{gap:1.2rem}}
+@media(max-width:768px){.nav{padding:1rem 1.5rem}.nav-links{display:none}.mob-tog{display:flex}.nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(12,11,10,.98);backdrop-filter:blur(20px);padding:1.5rem;gap:.25rem;border-bottom:1px solid rgba(196,162,101,.15);max-height:80vh;overflow-y:auto}.nav-links.active>li>a{display:block;padding:.6rem .5rem}.nav-dd{position:static;opacity:1;pointer-events:auto;transform:none;background:transparent;border:none;padding:0;display:none}.nav-dd.mob-open{display:block}.nav-drop.mob-open>a svg{transform:rotate(180deg)}.nav-dd a{padding:.45rem .5rem .45rem 1.5rem}.nav-dd-label{padding:.4rem .5rem .1rem 1.5rem}.nav-dd-div{margin:.2rem .5rem}}
 .sec-lab{display:inline-flex;align-items:center;gap:12px;margin-bottom:1.25rem}.sec-lab-line{width:30px;height:1px;background:var(--gold)}.sec-lab-text{font-size:.63rem;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
 
 /* MATERIAL HERO */
@@ -78,7 +97,55 @@ img{display:block;max-width:100%}
 </style>
 </head>
 <body>
-<nav class="nav"><a href="index.html" class="nav-logo"><img src="SMG-logo-ochre-white.png" alt="Steamboat Masters Granite"></a><ul class="nav-links" id="navLinks"><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="index.html#gallery">Portfolio</a></li><li><a href="providers.html">Providers</a></li><li><a href="faqs.html">FAQs</a></li><li><a href="track.html">Track Order</a></li><li><a href="contact.html" class="nav-cta">Free Estimate</a></li></ul><button class="mob-tog" id="mobTog" aria-label="Menu"><span></span><span></span><span></span></button></nav>
+<nav class="nav" id="navbar">
+<a href="index.html" class="nav-logo"><img src="Steamboat-logo-white.png" alt="Steamboat Masters Granite"></a>
+<ul class="nav-links" id="navLinks">
+  <li><a href="about.html">About</a></li>
+  <li class="nav-drop">
+    <a href="services.html">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+    <div class="nav-dd">
+      <a href="services.html">All Services</a>
+      <div class="nav-dd-div"></div>
+      <a href="process.html">Our Process</a>
+      <a href="faqs.html">FAQs</a>
+      <a href="track-project.html">Track Project</a>
+    </div>
+  </li>
+  <li class="nav-drop">
+    <a href="#">Materials <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+    <div class="nav-dd">
+      <a href="granite.html">Granite</a>
+      <a href="quartz.html">Quartz</a>
+      <a href="quartzite.html">Quartzite</a>
+      <a href="other-materials.html">Other Materials</a>
+    </div>
+  </li>
+  <li class="nav-drop">
+    <a href="providers.html">Providers <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+    <div class="nav-dd">
+      <a href="providers.html">All Providers</a>
+      <div class="nav-dd-div"></div>
+      <div class="nav-dd-label">Colorado</div>
+      <a href="cambria-provider.html">Cambria</a>
+      <a href="cosentino-provider.html">Cosentino</a>
+      <a href="arizona-tile-provider.html">Arizona Tile</a>
+      <a href="msi-provider.html">MSI</a>
+      <a href="daltile-provider.html">Daltile</a>
+      <a href="arc-surfaces-provider.html">Arc Surfaces</a>
+      <div class="nav-dd-label">Specialty</div>
+      <a href="dorado-soapstone-provider.html">Dorado Soapstone</a>
+      <a href="porcelanosa-provider.html">Porcelanosa</a>
+      <a href="stone-collection-provider.html">Stone Collection</a>
+      <a href="francini-provider.html">Francini</a>
+    </div>
+  </li>
+  <li><a href="index.html#gallery">Portfolio</a></li>
+  <li><a href="locations.html">Coverage</a></li>
+  <li><a href="blog.html">Blog</a></li>
+  <li><a href="contact.html" class="nav-cta">Free Estimate</a></li>
+</ul>
+<button class="mob-tog" id="mobTog" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
 
 <section class="mat-hero"><div class="mat-hero-bg"></div>
 <div class="mat-hero-c">
@@ -141,5 +208,17 @@ img{display:block;max-width:100%}
 
 <section class="cta-banner"><h2>Ready for your granite <em>transformation?</em></h2><a href="contact.html" class="btn-p">Get a Free Quote <span class="btn-arr"></span></a></section>
 <footer class="footer"><div class="ft-bot"><p>&copy; 2025 Steamboat Masters Granite. All Rights Reserved.</p></div></footer>
-<script>const mt=document.getElementById('mobTog'),nl=document.getElementById('navLinks');mt.addEventListener('click',()=>nl.classList.toggle('active'));nl.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>nl.classList.remove('active')));</script>
+<script>const _navMt=document.getElementById('mobTog'),_navNl=document.getElementById('navLinks');
+_navMt.addEventListener('click',()=>_navNl.classList.toggle('active'));
+_navNl.querySelectorAll('.nav-drop>a').forEach(a=>{
+  a.addEventListener('click',(e)=>{
+    if(window.innerWidth>768)return;
+    e.preventDefault();
+    const li=a.parentElement,dd=li.querySelector('.nav-dd'),isOpen=li.classList.contains('mob-open');
+    _navNl.querySelectorAll('.nav-drop').forEach(el=>{el.classList.remove('mob-open');el.querySelector('.nav-dd').classList.remove('mob-open');});
+    if(!isOpen){li.classList.add('mob-open');dd.classList.add('mob-open');}
+  });
+});
+_navNl.querySelectorAll('a:not(.nav-drop>a)').forEach(l=>l.addEventListener('click',()=>_navNl.classList.remove('active')));
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>50)););</script>
 </body></html>

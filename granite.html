@@ -49,8 +49,8 @@ img{display:block;max-width:100%}
 .sec-lab{display:inline-flex;align-items:center;gap:12px;margin-bottom:1.25rem}.sec-lab-line{width:30px;height:1px;background:var(--gold)}.sec-lab-text{font-size:.63rem;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
 
 /* MATERIAL HERO */
-.mat-hero{padding:10rem 6vw 5rem;position:relative;overflow:hidden;min-height:60vh;display:flex;align-items:flex-end}
-.mat-hero-bg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,11,10,.2),rgba(22,54,49,.3) 40%,rgba(12,11,10,.85) 75%,var(--bg1)),url('https://images.unsplash.com/photo-1618220252344-8ec99ec624b1?w=1800&q=85') center/cover}
+.mat-hero{padding:10rem 6vw 5rem;position:relative;overflow:hidden;min-height:60vh;display:flex;align-items:flex-end;border-bottom:1px solid var(--b-em)}
+.mat-hero-bg{position:absolute;inset:0;background:linear-gradient(105deg,rgba(12,11,10,.78) 0%,rgba(15,39,35,.65) 40%,rgba(12,11,10,.45) 100%),url('../material-granite.webp') center/cover}
 .mat-hero-c{position:relative;z-index:2;max-width:700px}
 .mat-hero h1{font-family:var(--sf);font-size:clamp(2.5rem,5vw,4rem);font-weight:300;line-height:1.1;margin-bottom:1.25rem}
 .mat-hero h1 em{font-style:italic;color:var(--gold-l)}
@@ -78,13 +78,7 @@ img{display:block;max-width:100%}
 .content-text p{font-size:.88rem;font-weight:300;line-height:1.8;color:var(--t2);margin-bottom:1rem}
 
 /* COLORS SHOWCASE */
-.colors{padding:5rem 6vw;background:var(--em-d);border-top:1px solid var(--b-em)}
-.colors-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-top:3rem}
-.color-swatch{aspect-ratio:1;overflow:hidden;position:relative;cursor:pointer}
-.color-swatch img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}.color-swatch:hover img{transform:scale(1.1)}
-.color-info{position:absolute;bottom:0;left:0;right:0;padding:1rem;background:linear-gradient(to top,rgba(15,39,35,.9),transparent);opacity:0;transition:opacity .3s}.color-swatch:hover .color-info{opacity:1}
-.color-info span{font-size:.68rem;font-weight:300;letter-spacing:.1em;text-transform:uppercase}
-
+.color-swatch:hover 
 /* NAV MATERIALS */
 .mat-nav{padding:3rem 6vw;background:var(--bg2);border-top:1px solid rgba(255,255,255,.04);text-align:center}
 .mat-nav-title{font-size:.63rem;font-weight:300;letter-spacing:.3em;text-transform:uppercase;color:var(--t3);margin-bottom:1.5rem}
@@ -99,15 +93,15 @@ img{display:block;max-width:100%}
 .footer{background:var(--em-d);border-top:1px solid var(--b-em);padding:2.5rem 6vw 1.5rem}
 .ft-bot{display:flex;align-items:center;justify-content:space-between}.ft-bot p{font-size:.68rem;font-weight:300;color:var(--t3)}
 
-@media(max-width:1024px){.features-grid{grid-template-columns:repeat(2,1fr)}.colors-grid{grid-template-columns:repeat(3,1fr)}.content-grid{gap:3rem}}
-@media(max-width:768px){.nav{padding:1rem 1.5rem}.nav-links{display:none}.mob-tog{display:flex}.nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(12,11,10,.97);backdrop-filter:blur(20px);padding:2rem 1.5rem;gap:1.5rem;border-bottom:1px solid var(--b-gold)}.mat-hero{padding:8rem 5vw 3rem;min-height:auto}.features{padding:3rem 5vw}.content-sec{padding:3rem 5vw}.content-grid{grid-template-columns:1fr;gap:2rem}.content-grid.reverse{direction:ltr}.colors{padding:3rem 5vw}.colors-grid{grid-template-columns:repeat(2,1fr)}.hero-act{flex-direction:column;align-items:flex-start;gap:1rem}.cta-banner{flex-direction:column;text-align:center;padding:3rem 5vw}.mat-nav{padding:2rem 5vw}.ft-bot{flex-direction:column;gap:1rem;text-align:center}}
+@media(max-width:1024px){.features-grid{grid-template-columns:repeat(2,1fr)}.content-grid{gap:3rem}}
+@media(max-width:768px){.nav{padding:1rem 1.5rem}.nav-links{display:none}.mob-tog{display:flex}.nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(12,11,10,.97);backdrop-filter:blur(20px);padding:2rem 1.5rem;gap:1.5rem;border-bottom:1px solid var(--b-gold)}.mat-hero{padding:8rem 5vw 3rem;min-height:auto}.features{padding:3rem 5vw}.content-sec{padding:3rem 5vw}.content-grid{grid-template-columns:1fr;gap:2rem}.content-grid.reverse{direction:ltr}.hero-act{flex-direction:column;align-items:flex-start;gap:1rem}.cta-banner{flex-direction:column;text-align:center;padding:3rem 5vw}.mat-nav{padding:2rem 5vw}.ft-bot{flex-direction:column;gap:1rem;text-align:center}}
 
 /* ── LUXURY TEXTURE ─────────────────────────────── */
 :root{--lux-tex:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='8'%3E%3Cpath d='M0 8L4 4L8 8' fill='none' stroke='rgba(196%2C162%2C101%2C0.09)' stroke-width='0.7' stroke-linecap='round'/%3E%3Cpath d='M8 8L12 4L16 8' fill='none' stroke='rgba(196%2C162%2C101%2C0.09)' stroke-width='0.7' stroke-linecap='round'/%3E%3Cpath d='M0 0L4 4L8 0' fill='none' stroke='rgba(196%2C162%2C101%2C0.05)' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M8 0L12 4L16 0' fill='none' stroke='rgba(196%2C162%2C101%2C0.05)' stroke-width='0.5' stroke-linecap='round'/%3E%3C/svg%3E")}
 .cta{background-image:var(--lux-tex)!important}
 .cta-banner{background-image:var(--lux-tex)!important}
 .stats-bar{background-image:var(--lux-tex)!important}
-.page-hero{background-image:var(--lux-tex)!important}
+/* hero has real image */
 .custom-banner{background-image:var(--lux-tex)!important}
 .track-help{background-image:var(--lux-tex)!important}
 .nav-links.active{background-image:var(--lux-tex)!important}
@@ -179,7 +173,7 @@ img{display:block;max-width:100%}
 <div class="sec-lab"><span class="sec-lab-line"></span><span class="sec-lab-text">Premium Materials</span></div>
 <h1><em>Granite</em> Countertops</h1>
 <p>Nature's masterpiece for your home. Each slab is a one-of-a-kind work of art — forged over millions of years, cut and polished to perfection by our master craftsmen.</p>
-<div class="hero-act"><a href="contact.html" class="btn-p">Request a Quote <span class="btn-arr"></span></a><a href="#colors" class="btn-s">View Colors <span class="btn-arr"></span></a></div>
+<div class="hero-act"><a href="contact.html" class="btn-p">Request a Quote <span class="btn-arr"></span></a></div>
 </div></section>
 
 <section class="features">
@@ -193,7 +187,7 @@ img{display:block;max-width:100%}
 
 <section class="content-sec">
 <div class="content-grid">
-<div class="content-img"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Granite kitchen" loading="lazy"></div>
+<div class="content-img"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=85" alt="Granite kitchen countertop" loading="lazy"></div>
 <div class="content-text">
 <h2>Natural <em>Elegance</em> for Your Kitchen</h2>
 <p>Granite is formed deep within the earth over millions of years, resulting in rich colors, intricate patterns, and a depth that engineered materials simply cannot replicate.</p>
@@ -203,7 +197,7 @@ img{display:block;max-width:100%}
 
 <section class="content-sec" style="background:var(--bg2);border-top:1px solid rgba(255,255,255,.04)">
 <div class="content-grid reverse">
-<div class="content-img"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80" alt="Granite detail" loading="lazy"></div>
+<div class="content-img"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=85" alt="Granite countertop close-up" loading="lazy"></div>
 <div class="content-text">
 <h2>Care &amp; <em>Maintenance</em></h2>
 <p>Granite countertops are low maintenance and built to last. We professionally seal every surface during installation, creating a protective barrier against stains and moisture.</p>
@@ -211,18 +205,7 @@ img{display:block;max-width:100%}
 <p>Granite is naturally resistant to heat, scratches, and bacteria, making it one of the safest and most hygienic surfaces for food preparation.</p>
 </div></div></section>
 
-<section class="colors" id="colors">
-<div class="sec-lab"><span class="sec-lab-line"></span><span class="sec-lab-text">Popular Colors</span></div>
-<h2 style="font-family:var(--sf);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:300;margin-bottom:.5rem">Granite <em style="font-style:italic;color:var(--gold-l)">Collections</em></h2>
-<p style="font-size:.9rem;font-weight:300;color:var(--t2);max-width:500px">Each slab is unique. Visit our showroom to see the full range or contact us for availability.</p>
-<div class="colors-grid">
-<div class="color-swatch"><img src="https://images.unsplash.com/photo-1618220252344-8ec99ec624b1?w=400&q=75" alt="Black Galaxy" loading="lazy"><div class="color-info"><span>Black Galaxy</span></div></div>
-<div class="color-swatch"><img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=400&q=75" alt="White Ice" loading="lazy"><div class="color-info"><span>White Ice</span></div></div>
-<div class="color-swatch"><img src="https://images.unsplash.com/photo-1615971677499-5467cbab01c0?w=400&q=75" alt="Giallo Ornamental" loading="lazy"><div class="color-info"><span>Giallo Ornamental</span></div></div>
-<div class="color-swatch"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&q=75" alt="Steel Grey" loading="lazy"><div class="color-info"><span>Steel Grey</span></div></div>
-<div class="color-swatch"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=75" alt="Colonial White" loading="lazy"><div class="color-info"><span>Colonial White</span></div></div>
-<div class="color-swatch"><img src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=400&q=75" alt="Tan Brown" loading="lazy"><div class="color-info"><span>Tan Brown</span></div></div>
-</div></section>
+
 
 <section class="mat-nav">
 <div class="mat-nav-title">Explore Other Materials</div>

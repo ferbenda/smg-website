@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Granite Countertops | Steamboat Masters Granite</title>
+<meta name="description" content="Premium granite countertops in Steamboat Springs. Natural elegance, heat resistant, and built to last decades. Free consultation available.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#0C0B0A;--bg2:#111110;--bg3:#1A1918;--em:#163631;--em-d:#0F2723;--em-l:#1E4A43;--em-g:#2A6B60;--gold:#C4A265;--gold-l:#D4B97A;--gold-d:#8B7342;--t1:#F5F0E8;--t2:#A89F94;--t3:#6B6358;--b-gold:rgba(196,162,101,.15);--b-em:rgba(30,74,67,.5);--sf:'Cormorant Garamond',Georgia,serif;--sn:'Outfit',sans-serif;--ease:cubic-bezier(.25,.46,.45,.94)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:var(--sn);background:var(--bg1);color:var(--t1);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");pointer-events:none;z-index:9999}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--em-l);border-radius:3px}
+img{display:block;max-width:100%}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 3.5rem;display:flex;align-items:center;justify-content:space-between;transition:all .5s var(--ease);background:linear-gradient(180deg,rgba(12,11,10,.7),transparent)}
+.nav.hidden{transform:translateY(-100%);pointer-events:none}
+.nav.scrolled{background:rgba(12,11,10,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--b-gold);padding:.7rem 3.5rem}
+.nav-logo{display:flex;align-items:center;text-decoration:none;height:90px}
+.nav-logo img{height:100%;width:auto;object-fit:contain}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links>li{position:relative}
+.nav-links a{font-size:.7rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--t2);text-decoration:none;transition:color .3s;position:relative;white-space:nowrap}
+.nav-links>li>a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .4s var(--ease)}
+.nav-links>li>a:hover{color:var(--gold-l)}.nav-links>li>a:hover::after{width:100%}
+/* Dropdown trigger */
+.nav-drop>a{display:flex;align-items:center;gap:5px;cursor:pointer}
+.nav-drop>a svg{width:10px;height:10px;transition:transform .3s;flex-shrink:0}
+.nav-drop.open>a svg{transform:rotate(180deg)}
+.nav-drop.open>a{color:var(--gold-l)}
+/* Dropdown panel */
+.nav-dd{position:absolute;top:100%;left:50%;padding-top:12px;transform:translateX(-50%);opacity:0;pointer-events:none;transition:opacity .2s var(--ease)}
+.nav-drop.open .nav-dd{opacity:1;pointer-events:auto}
+.nav-dd-inner{background:rgba(12,11,10,.97);backdrop-filter:blur(20px);border:1px solid var(--b-gold);padding:.5rem 0;min-width:220px}
+.nav-dd a{display:block;padding:.65rem 1.4rem;font-size:.65rem;font-weight:300;letter-spacing:.14em;text-transform:uppercase;color:var(--t2);text-decoration:none;transition:all .2s;white-space:nowrap}
+.nav-dd a:hover{color:var(--gold-l);background:rgba(196,162,101,.06);padding-left:1.7rem}
+.nav-dd-div{height:1px;background:var(--b-gold);margin:.3rem 1.25rem}
+.nav-dd-label{padding:.4rem 1.25rem .1rem;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);font-weight:400}
+/* CTA */
+.nav-cta{color:var(--bg1)!important;background:var(--gold);padding:.65rem 1.8rem;border:1px solid var(--gold);transition:all .4s}
+.nav-cta:hover{background:transparent;color:var(--gold-l)!important}.nav-cta::after{display:none!important}
+/* Mobile */
+.mob-tog{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.mob-tog span{width:24px;height:1.5px;background:var(--t1);transition:all .3s}
+@media(max-width:1024px){.nav{padding:1rem 2rem}.nav.scrolled{padding:.6rem 2rem}.nav-links{gap:1.2rem}}
+@media(max-width:768px){.nav{padding:1rem 1.5rem}.nav-links{display:none}.mob-tog{display:flex}.nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(12,11,10,.98);backdrop-filter:blur(20px);padding:1.5rem;gap:.1rem;border-bottom:1px solid rgba(196,162,101,.15);max-height:85vh;overflow-y:auto}.nav-links.active>li>a{display:block;padding:.65rem .5rem;font-size:.68rem}.nav-dd{position:static;opacity:1;pointer-events:auto;transform:none;padding-top:0;display:none;min-width:auto}.nav-dd.mob-open{display:block}.nav-dd-inner{background:transparent;border:none;padding:0;backdrop-filter:none}.nav-dd a{padding:.5rem .5rem .5rem 1.5rem;font-size:.63rem}.nav-dd-label{padding:.4rem .5rem .1rem 1.5rem}.nav-dd-div{margin:.2rem .5rem}}
+@media(max-width:1024px){.nav{padding:1rem 2rem}.nav.scrolled{padding:.6rem 2rem}.nav-links{gap:1.2rem}}
+@media(max-width:768px){.nav{padding:1rem 1.5rem}.nav-links{display:none}.mob-tog{display:flex}.nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(12,11,10,.98);backdrop-filter:blur(20px);padding:1.5rem;gap:.25rem;border-bottom:1px solid rgba(196,162,101,.15);max-height:80vh;overflow-y:auto}.nav-links.active>li>a{display:block;padding:.6rem .5rem}.nav-dd{position:static;opacity:1;pointer-events:auto;transform:none;background:transparent;border:none;padding:0;display:none}.nav-dd.mob-open{display:block}.nav-drop.mob-open>a svg{transform:rotate(180deg)}.nav-dd a{padding:.45rem .5rem .45rem 1.5rem}.nav-dd-label{padding:.4rem .5rem .1rem 1.5rem}.nav-dd-div{margin:.2rem .5rem}}
+.sec-lab{display:inline-flex;align-items:center;gap:12px;margin-bottom:1.25rem}.sec-lab-line{width:30px;height:1px;background:var(--gold)}.sec-lab-text{font-size:.63rem;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+
+/* MATERIAL HERO */
+.mat-hero{padding:10rem 6vw 5rem;position:relative;overflow:hidden;min-height:60vh;display:flex;align-items:flex-end;border-bottom:1px solid var(--b-em)}
+.mat-hero-bg{position:absolute;inset:0;background:linear-gradient(105deg,rgba(12,11,10,.78) 0%,rgba(15,39,35,.65) 40%,rgba(12,11,10,.45) 100%),url('granite-hero.webp') center 40%/cover}
+.mat-hero-c{position:relative;z-index:2;max-width:700px}
+.mat-hero h1{font-family:var(--sf);font-size:clamp(2.5rem,5vw,4rem);font-weight:300;line-height:1.1;margin-bottom:1.25rem}
+.mat-hero h1 em{font-style:italic;color:var(--gold-l)}
+.mat-hero p{font-size:1rem;font-weight:300;line-height:1.7;color:var(--t2);max-width:550px;margin-bottom:2rem}
+.btn-p{display:inline-flex;align-items:center;gap:10px;font-family:var(--sn);font-size:.72rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--bg1);background:var(--gold);padding:1rem 2.4rem;text-decoration:none;border:1px solid var(--gold);transition:all .4s}
+.btn-p:hover{background:var(--gold-l);transform:translateY(-2px);box-shadow:0 8px 30px rgba(196,162,101,.2)}
+.btn-s{display:inline-flex;align-items:center;gap:10px;font-family:var(--sn);font-size:.72rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--t2);text-decoration:none;transition:all .3s;background:none;border:none;cursor:pointer}.btn-s:hover{color:var(--gold-l)}
+.btn-arr{width:20px;height:1px;background:currentColor;position:relative;transition:width .3s}.btn-arr::after{content:'';position:absolute;right:0;top:-3px;width:7px;height:7px;border-right:1px solid currentColor;border-top:1px solid currentColor;transform:rotate(45deg)}.btn-p:hover .btn-arr,.btn-s:hover .btn-arr{width:30px}
+.hero-act{display:flex;align-items:center;gap:2rem}
+
+/* FEATURES */
+.features{padding:5rem 6vw;background:var(--bg2);border-top:1px solid rgba(255,255,255,.04)}
+.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:3rem}
+.feat-card{background:var(--bg3);padding:2rem;text-align:center;transition:all .4s}.feat-card:hover{background:var(--em-d)}
+.feat-icon{width:40px;height:40px;margin:0 auto 1rem;color:var(--gold)}
+.feat-card h3{font-family:var(--sf);font-size:1.15rem;font-weight:400;margin-bottom:.5rem}
+.feat-card p{font-size:.78rem;font-weight:300;line-height:1.6;color:var(--t2)}
+
+/* CONTENT SECTION */
+.content-sec{padding:5rem 6vw}
+.content-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.content-grid.reverse{direction:rtl}.content-grid.reverse>*{direction:ltr}
+.content-img{aspect-ratio:4/3;overflow:hidden;position:relative}.content-img img{width:100%;height:100%;object-fit:cover}
+.content-text h2{font-family:var(--sf);font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:300;line-height:1.2;margin-bottom:1.25rem}.content-text h2 em{font-style:italic;color:var(--gold-l)}
+.content-text p{font-size:.88rem;font-weight:300;line-height:1.8;color:var(--t2);margin-bottom:1rem}
+
+/* COLORS SHOWCASE */
+.color-swatch:hover 
+/* NAV MATERIALS */
+.mat-nav{padding:3rem 6vw;background:var(--bg2);border-top:1px solid rgba(255,255,255,.04);text-align:center}
+.mat-nav-title{font-size:.63rem;font-weight:300;letter-spacing:.3em;text-transform:uppercase;color:var(--t3);margin-bottom:1.5rem}
+.mat-nav-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+.mat-nav-link{padding:.75rem 2rem;border:1px solid var(--b-gold);font-size:.72rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--t2);text-decoration:none;transition:all .3s}
+.mat-nav-link:hover,.mat-nav-link.active{background:var(--em);border-color:var(--em-l);color:var(--gold)}
+
+/* CTA */
+.cta-banner{background:var(--em);border-top:1px solid var(--em-l);padding:4rem 6vw;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.cta-banner h2{font-family:var(--sf);font-size:1.8rem;font-weight:300}.cta-banner h2 em{font-style:italic;color:var(--gold-l)}
+
+.footer{background:var(--em-d);border-top:1px solid var(--b-em);padding:2.5rem 6vw 1.5rem}
+.ft-bot{display:flex;align-items:center;justify-content:space-between}.ft-bot p{font-size:.68rem;font-weight:300;color:var(--t3)}
+
+@media(max-width:1024px){.features-grid{grid-template-columns:repeat(2,1fr)}.content-grid{gap:3rem}}
+@media(max-width:768px){.nav{padding:1rem 1.5rem}.nav-links{display:none}.mob-tog{display:flex}.nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(12,11,10,.97);backdrop-filter:blur(20px);padding:2rem 1.5rem;gap:1.5rem;border-bottom:1px solid var(--b-gold)}.mat-hero{padding:8rem 5vw 3rem;min-height:auto}.features{padding:3rem 5vw}.content-sec{padding:3rem 5vw}.content-grid{grid-template-columns:1fr;gap:2rem}.content-grid.reverse{direction:ltr}.hero-act{flex-direction:column;align-items:flex-start;gap:1rem}.cta-banner{flex-direction:column;text-align:center;padding:3rem 5vw}.mat-nav{padding:2rem 5vw}.ft-bot{flex-direction:column;gap:1rem;text-align:center}}
+
+/* ── LUXURY TEXTURE ─────────────────────────────── */
+:root{--lux-tex:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='8'%3E%3Cpath d='M0 8L4 4L8 8' fill='none' stroke='rgba(196%2C162%2C101%2C0.09)' stroke-width='0.7' stroke-linecap='round'/%3E%3Cpath d='M8 8L12 4L16 8' fill='none' stroke='rgba(196%2C162%2C101%2C0.09)' stroke-width='0.7' stroke-linecap='round'/%3E%3Cpath d='M0 0L4 4L8 0' fill='none' stroke='rgba(196%2C162%2C101%2C0.05)' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M8 0L12 4L16 0' fill='none' stroke='rgba(196%2C162%2C101%2C0.05)' stroke-width='0.5' stroke-linecap='round'/%3E%3C/svg%3E")}
+.cta{background-image:var(--lux-tex)!important}
+.cta-banner{background-image:var(--lux-tex)!important}
+.stats-bar{background-image:var(--lux-tex)!important}
+/* hero has real image */
+.custom-banner{background-image:var(--lux-tex)!important}
+.track-help{background-image:var(--lux-tex)!important}
+.nav-links.active{background-image:var(--lux-tex)!important}
+.nav-dd-inner{background-image:var(--lux-tex)!important}
+.value-card:hover{background-image:var(--lux-tex)!important}
+.provider-card:hover{background-image:var(--lux-tex)!important}
+.county-hdr.active{background-image:var(--lux-tex)!important}
+.city-item.active{background-image:var(--lux-tex)!important}
+.loc-sidebar{background-image:var(--lux-tex)!important}
+.tst-card{background-image:var(--lux-tex)!important}
+.svc-card:hover{background-image:var(--lux-tex)!important}
+.about-badges{background-image:none}
+/* ─────────────────────────────────────────────── */
+</style>
+</head>
+<body>
+<nav class="nav" id="navbar">
+<a href="../index.html" class="nav-logo"><img src="../Steamboat-logo-white.png" alt="Steamboat Masters Granite"></a>
+<ul class="nav-links" id="navLinks">
+  <li><a href="about.html">About</a></li>
+  <li class="nav-drop">
+    <a href="services.html">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+    <div class="nav-dd"><div class="nav-dd-inner">
+      <a href="services.html">All Services</a>
+      <div class="nav-dd-div"></div>
+      <a href="process.html">Our Process</a>
+      <a href="faqs.html">FAQs</a>
+      <a href="track-project.html">Track Project</a>
+    </div></div>
+  </li>
+  <li class="nav-drop">
+    <a href="#">Materials <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+    <div class="nav-dd"><div class="nav-dd-inner">
+      <a href="granite.html">Granite</a>
+      <a href="quartz.html">Quartz</a>
+      <a href="quartzite.html">Quartzite</a>
+      <a href="other-materials.html">Other Materials</a>
+    </div></div>
+  </li>
+  <li class="nav-drop">
+    <a href="providers.html">Providers <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+    <div class="nav-dd"><div class="nav-dd-inner">
+      <a href="providers.html">All Providers</a>
+      <div class="nav-dd-div"></div>
+      <div class="nav-dd-label">Colorado</div>
+      <a href="providers/cambria-provider.html">Cambria</a>
+      <a href="providers/cosentino-provider.html">Cosentino</a>
+      <a href="providers/arizona-tile-provider.html">Arizona Tile</a>
+      <a href="providers/msi-provider.html">MSI</a>
+      <a href="providers/daltile-provider.html">Daltile</a>
+      <a href="providers/arc-surfaces-provider.html">Arc Surfaces</a>
+      <div class="nav-dd-label">Specialty</div>
+      <a href="providers/dorado-soapstone-provider.html">Dorado Soapstone</a>
+      <a href="providers/porcelanosa-provider.html">Porcelanosa</a>
+      <a href="providers/stone-collection-provider.html">Stone Collection</a>
+      <a href="providers/francini-provider.html">Francini</a>
+    </div></div>
+  </li>
+  <li><a href="../index.html#gallery">Portfolio</a></li>
+  <li><a href="locations.html">Coverage</a></li>
+  <li><a href="blog.html">Blog</a></li>
+  <li><a href="contact.html" class="nav-cta">Free Estimate</a></li>
+</ul>
+<button class="mob-tog" id="mobTog" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="mat-hero"><div class="mat-hero-bg"></div>
+<div class="mat-hero-c">
+<div class="sec-lab"><span class="sec-lab-line"></span><span class="sec-lab-text">Premium Materials</span></div>
+<h1><em>Granite</em> Countertops</h1>
+<p>Nature's masterpiece for your home. Each slab is a one-of-a-kind work of art — forged over millions of years, cut and polished to perfection by our master craftsmen.</p>
+<div class="hero-act"><a href="contact.html" class="btn-p">Request a Quote <span class="btn-arr"></span></a></div>
+</div></section>
+
+<section class="features">
+<div class="sec-lab"><span class="sec-lab-line"></span><span class="sec-lab-text">Why Granite</span></div>
+<div class="features-grid">
+<div class="feat-card"><svg class="feat-icon" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/><path d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/></svg><h3>Heat Resistant</h3><p>Place hot pans directly on the surface without damage. Granite withstands extreme temperatures with ease.</p></div>
+<div class="feat-card"><svg class="feat-icon" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg><h3>Scratch Proof</h3><p>One of the hardest natural materials. Resists scratches from knives, utensils, and everyday kitchen use.</p></div>
+<div class="feat-card"><svg class="feat-icon" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg><h3>Decades of Life</h3><p>Properly sealed granite lasts a lifetime. A one-time investment that increases your home resale value.</p></div>
+<div class="feat-card"><svg class="feat-icon" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg><h3>Unique Patterns</h3><p>No two slabs are identical. Your countertop will be a truly one-of-a-kind surface with natural veining and depth.</p></div>
+</div></section>
+
+<section class="content-sec">
+<div class="content-grid">
+<div class="content-img"><img src="granite-elegance.webp" alt="Granite natural elegance slab display" loading="lazy"></div>
+<div class="content-text">
+<h2>Natural <em>Elegance</em> for Your Kitchen</h2>
+<p>Granite is formed deep within the earth over millions of years, resulting in rich colors, intricate patterns, and a depth that engineered materials simply cannot replicate.</p>
+<p>Every slab we source passes through a rigorous quality inspection before it reaches our fabrication workshop. We work with quarries in Brazil, India, Italy, and across the globe to offer you the most stunning granite selections available.</p>
+<p>Our artisan approach means we carefully study the natural veining of your slab to plan cuts that maximize beauty while minimizing visible seams.</p>
+</div></div></section>
+
+<section class="content-sec" style="background:var(--bg2);border-top:1px solid rgba(255,255,255,.04)">
+<div class="content-grid reverse">
+<div class="content-img"><img src="granite-care.webp" alt="Granite countertop care and maintenance" loading="lazy"></div>
+<div class="content-text">
+<h2>Care &amp; <em>Maintenance</em></h2>
+<p>Granite countertops are low maintenance and built to last. We professionally seal every surface during installation, creating a protective barrier against stains and moisture.</p>
+<p>Daily care is simple — warm water and mild dish soap. A quick annual reseal (which we teach you during installation) keeps your granite looking flawless for decades.</p>
+<p>Granite is naturally resistant to heat, scratches, and bacteria, making it one of the safest and most hygienic surfaces for food preparation.</p>
+</div></div></section>
+
+
+
+<section class="mat-nav">
+<div class="mat-nav-title">Explore Other Materials</div>
+<div class="mat-nav-links">
+<a href="granite.html" class="mat-nav-link active">Granite</a>
+<a href="quartz.html" class="mat-nav-link">Quartz</a>
+<a href="quartzite.html" class="mat-nav-link">Quartzite</a>
+<a href="other-materials.html" class="mat-nav-link">Other Materials</a>
+</div></section>
+
+<section class="cta-banner"><h2>Ready for your granite <em>transformation?</em></h2><a href="contact.html" class="btn-p">Get a Free Quote <span class="btn-arr"></span></a></section>
+<footer class="footer"><div class="ft-bot"><p>&copy; 2025 Steamboat Masters Granite. All Rights Reserved.</p></div></footer>
+<script>const _nt=document.getElementById('mobTog'),_nl=document.getElementById('navLinks');
+_nt.addEventListener('click',()=>_nl.classList.toggle('active'));
+const _dr=document.querySelectorAll('.nav-drop');
+_dr.forEach(drop=>{
+  let _t=null;
+  drop.addEventListener('mouseenter',()=>{clearTimeout(_t);_dr.forEach(d=>{if(d!==drop)d.classList.remove('open');});drop.classList.add('open');});
+  drop.addEventListener('mouseleave',()=>{_t=setTimeout(()=>drop.classList.remove('open'),300);});
+  drop.querySelector('a').addEventListener('click',(e)=>{
+    if(window.innerWidth>768)return;
+    e.preventDefault();
+    const dd=drop.querySelector('.nav-dd'),isOpen=drop.classList.contains('mob-open');
+    _dr.forEach(d=>{d.classList.remove('mob-open');const x=d.querySelector('.nav-dd');if(x)x.classList.remove('mob-open');});
+    if(!isOpen){drop.classList.add('mob-open');if(dd)dd.classList.add('mob-open');}
+  });
+});
+document.addEventListener('click',(e)=>{if(!e.target.closest('.nav-drop'))_dr.forEach(d=>d.classList.remove('open'));});
+_nl.querySelectorAll('a:not(.nav-drop>a)').forEach(a=>a.addEventListener('click',()=>_nl.classList.remove('active')));
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>50));</script>
+</body></html>

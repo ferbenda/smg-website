@@ -17,9 +17,9 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Steamboat Masters Granite | Premium Custom Countertops in Colorado">
 <meta property="og:description" content="Premium granite and quartz countertops in Steamboat Springs, Colorado. Custom fabrication and expert installation across Routt County. 25+ years combined experience, 1,000+ projects completed.">
-<meta property="og:url" content="https://smg-website-nine.vercel.app/">
+<meta property="og:url" content="https://www.steamboatmasters.com/">
 <meta property="og:site_name" content="Steamboat Masters Granite">
-<meta property="og:image" content="https://smg-website-nine.vercel.app/Steamboat-logo-white.png">
+<meta property="og:image" content="https://www.steamboatmasters.com/Steamboat-logo-white.png">
 <meta property="og:image:width" content="2000">
 <meta property="og:image:height" content="1415">
 <meta property="og:locale" content="en_US">
@@ -27,7 +27,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Steamboat Masters Granite | Premium Custom Countertops">
 <meta name="twitter:description" content="Premium granite and quartz countertops in Steamboat Springs, Colorado. Custom fabrication and expert installation across Routt County.">
-<meta name="twitter:image" content="https://smg-website-nine.vercel.app/Steamboat-logo-white.png">
+<meta name="twitter:image" content="https://www.steamboatmasters.com/Steamboat-logo-white.png">
 <!-- Preconnect -->
 <!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
@@ -36,10 +36,10 @@
   "@type": "HomeAndConstructionBusiness",
   "name": "Steamboat Masters Granite",
   "description": "Premium granite and quartz countertops in Steamboat Springs, Colorado. Custom fabrication and expert installation across Routt County. 25+ years combined experience, 1,000+ projects completed.",
-  "url": "https://smg-website-nine.vercel.app/",
+  "url": "https://www.steamboatmasters.com/",
   "telephone": "+1-520-223-3049",
-  "image": "https://smg-website-nine.vercel.app/Steamboat-logo-white.png",
-  "logo": "https://smg-website-nine.vercel.app/Steamboat-logo-white.png",
+  "image": "https://www.steamboatmasters.com/Steamboat-logo-white.png",
+  "logo": "https://www.steamboatmasters.com/Steamboat-logo-white.png",
   "priceRange": "$$$",
   "address": {
     "@type": "PostalAddress",
@@ -117,7 +117,7 @@
   }
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com?display=swap"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap"></noscript>
 <style>
@@ -846,6 +846,8 @@ rvs.forEach(el=>ro.observe(el));
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
 <script>
+window.addEventListener('load', function() {
+
 const covMap=L.map('covMap',{scrollWheelZoom:false,zoomControl:true,attributionControl:false,dragging:true,touchZoom:true}).setView([40.4,-106.9],7);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:18}).addTo(covMap);
 
@@ -893,6 +895,8 @@ const mapObs=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{if(e.isIntersecting){covMap.invalidateSize();covMap.fitBounds(allBounds,{padding:[40,40]});}});
 },{threshold:0.1});
 mapObs.observe(document.getElementById('covMap'));
+
+});
 </script>
 
 <!-- LIGHTBOX -->

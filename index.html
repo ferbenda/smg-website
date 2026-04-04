@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="preload" as="image" href="hero-kitchen-steamboat.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="hero-kitchen-mobile.webp" fetchpriority="high" media="(max-width: 768px)">
+  <link rel="preload" as="image" href="hero-kitchen-steamboat.webp" fetchpriority="high" media="(min-width: 769px)">
 <meta charset="UTF-8">
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="Steamboat-logo-white.png">
@@ -117,9 +118,9 @@
   }
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com?display=swap"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap"></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=optional" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=optional"></noscript>
 <style>
 :root{
 --bg1:#0C0B0A;--bg2:#111110;--bg3:#1A1918;
@@ -191,7 +192,7 @@ img{display:block}
 
 /* HERO */
 .hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:center;justify-content:center;overflow:hidden;text-align:center}
-.hero-bg{position:absolute;inset:0;background:url('hero-kitchen-steamboat.webp') center/cover;animation:pullout 6s cubic-bezier(0.25,0.46,0.45,0.94) forwards}
+.hero-bg{position:absolute;inset:0;background:url('hero-kitchen-steamboat.webp') center/cover;animation:pullout 6s cubic-bezier(0.25,0.46,0.45,0.94) forwards}@media(max-width:768px){.hero-bg{background-image:url('hero-kitchen-mobile.webp')}}
 @keyframes pullout{from{transform:scale(1.08)}to{transform:scale(1.0)}}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,11,10,.55) 0%,rgba(12,11,10,.65) 30%,rgba(12,11,10,.75) 55%,rgba(12,11,10,.92) 80%,var(--bg1) 100%);opacity:1}
 .hero-c{position:relative;z-index:2;padding:0 6vw;max-width:900px;opacity:1;transform:translateY(0);transition:opacity .6s ease,transform .6s ease}
@@ -583,20 +584,20 @@ img{display:block}
 <p class="prov-sub">Authorized direct resellers of the industry's leading brands in <em>Northwestern Colorado</em></p>
 <div class="prov-logos">
 <div class="prov-row">
-<a href="cambria-provider.html" title="Cambria" style="width:320px;height:140px"><img src="Cambria-logo.png" alt="Cambria" loading="lazy"></a>
-<a href="cosentino-provider.html" title="Cosentino" style="width:200px;height:70px"><img src="Cosentino-Logo.png" alt="Cosentino" loading="lazy"></a>
-<a href="arizona-tile-provider.html" title="Arizona Tile" style="width:360px;height:110px"><img src="Arizona-Tile-Logo.png" alt="Arizona Tile" loading="lazy"></a>
+<a href="cambria-provider.html" title="Cambria" style="width:320px;height:140px"><img src="Cambria-logo.png" width="320" height="140" alt="Cambria" loading="lazy"></a>
+<a href="cosentino-provider.html" title="Cosentino" style="width:200px;height:70px"><img src="Cosentino-Logo.png" width="200" height="70" alt="Cosentino" loading="lazy"></a>
+<a href="arizona-tile-provider.html" title="Arizona Tile" style="width:360px;height:110px"><img src="Arizona-Tile-Logo.png" width="360" height="110" alt="Arizona Tile" loading="lazy"></a>
 </div>
 <div class="prov-row" style="margin-top:-1rem">
-<a href="msi-provider.html" title="MSI" style="width:160px;height:55px"><img src="MSI.png" alt="MSI" loading="lazy"></a>
-<a href="daltile-provider.html" title="Daltile" style="width:210px;height:65px"><img src="Daltile-Logo.png" alt="Daltile" loading="lazy"></a>
-<a href="arc-surfaces-provider.html" title="Arc Surfaces" style="width:260px;height:80px"><img src="Arch-Surfaces.png" alt="Arc Surfaces" loading="lazy"></a>
-<a href="dorado-soapstone-provider.html" title="Dorado Soapstone" style="width:200px;height:70px"><img src="dorado.png" alt="Dorado Soapstone" loading="lazy"></a>
+<a href="msi-provider.html" title="MSI" style="width:160px;height:55px"><img src="MSI.png" width="160" height="55" alt="MSI" loading="lazy"></a>
+<a href="daltile-provider.html" title="Daltile" style="width:210px;height:65px"><img src="Daltile-Logo.png" width="210" height="65" alt="Daltile" loading="lazy"></a>
+<a href="arc-surfaces-provider.html" title="Arc Surfaces" style="width:260px;height:80px"><img src="Arch-Surfaces.png" width="260" height="80" alt="Arc Surfaces" loading="lazy"></a>
+<a href="dorado-soapstone-provider.html" title="Dorado Soapstone" style="width:200px;height:70px"><img src="dorado.png" width="200" height="70" alt="Dorado Soapstone" loading="lazy"></a>
 </div>
 <div class="prov-row" style="gap:5rem">
-<a href="porcelanosa-provider.html" title="Porcelanosa" style="width:300px;height:60px"><img src="porcelanosa.png" alt="Porcelanosa" loading="lazy"></a>
-<a href="stone-collection-provider.html" title="Stone Collection" style="width:160px;height:55px"><img src="Stone Collection logo PNG.png" alt="Stone Collection" loading="lazy"></a>
-<a href="francini-provider.html" title="Francini Inc." style="width:200px;height:70px"><img src="Francini-logo.png" alt="Francini Inc." loading="lazy"></a>
+<a href="porcelanosa-provider.html" title="Porcelanosa" style="width:300px;height:60px"><img src="porcelanosa.png" width="300" height="60" alt="Porcelanosa" loading="lazy"></a>
+<a href="stone-collection-provider.html" title="Stone Collection" style="width:160px;height:55px"><img src="Stone Collection logo PNG.png" width="160" height="55" alt="Stone Collection" loading="lazy"></a>
+<a href="francini-provider.html" title="Francini Inc." style="width:200px;height:70px"><img src="Francini-logo.png" width="200" height="70" alt="Francini Inc." loading="lazy"></a>
 </div>
 </div>
 </section>
@@ -605,12 +606,12 @@ img{display:block}
 <section class="sec" id="gallery">
 <div class="gal-hdr rv"><div><div class="sec-lab"><span class="sec-lab-line"></span><span class="sec-lab-text">Our Portfolio</span></div><h2 class="sec-title">Crafted With <em>Precision</em></h2><p class="sec-desc">Over 1,000 kitchens, baths, and custom surfaces across Steamboat Springs and Northwest Colorado.</p></div></div>
 <div class="gal-masonry rv">
-<div class="gal-pin"><img src="portfolio-white-waterfall.webp" alt="White quartz waterfall island herringbone backsplash Steamboat Springs" loading="lazy"><div class="gal-pin-cap"><h3>Modern White Waterfall</h3><p>Quartz · Kitchen · Steamboat Springs</p></div></div>
-<div class="gal-pin"><img src="portfolio-crystalo-wall.webp" alt="Backlit crystal wall feature Steamboat Springs" loading="lazy"><div class="gal-pin-cap"><h3>Backlit Crystal Wall</h3><p>Cristallo Quartzite · Feature Wall</p></div></div>
-<div class="gal-pin"><img src="portfolio-quartz-mountain.webp" alt="Quartz kitchen island mountain view Steamboat Springs" loading="lazy"><div class="gal-pin-cap"><h3>Mountain View Kitchen</h3><p>Quartz · Kitchen Island</p></div></div>
-<div class="gal-pin"><img src="portfolio-marble-vanity.webp" alt="White marble double vanity bathroom Colorado" loading="lazy"><div class="gal-pin-cap"><h3>Master Bath Vanity</h3><p>Marble · Double Vanity · Routt County</p></div></div>
-<div class="gal-pin"><img src="portfolio-stone-vanity.webp" alt="Custom stone vanity with river rock accents" loading="lazy"><div class="gal-pin-cap"><h3>Custom Stone Vanity</h3><p>Natural Stone · Powder Room</p></div></div>
-<div class="gal-pin"><img src="portfolio-rustic-kitchen.webp" alt="Rustic granite kitchen island Routt County Colorado" loading="lazy"><div class="gal-pin-cap"><h3>Rustic Mountain Kitchen</h3><p>Granite · Kitchen Island</p></div></div>
+<div class="gal-pin"><img src="portfolio-white-waterfall.webp" width="600" height="510" alt="White quartz waterfall island herringbone backsplash Steamboat Springs" loading="lazy"><div class="gal-pin-cap"><h3>Modern White Waterfall</h3><p>Quartz · Kitchen · Steamboat Springs</p></div></div>
+<div class="gal-pin"><img src="portfolio-crystalo-wall.webp" width="600" height="744" alt="Backlit crystal wall feature Steamboat Springs" loading="lazy"><div class="gal-pin-cap"><h3>Backlit Crystal Wall</h3><p>Cristallo Quartzite · Feature Wall</p></div></div>
+<div class="gal-pin"><img src="portfolio-quartz-mountain.webp" width="600" height="594" alt="Quartz kitchen island mountain view Steamboat Springs" loading="lazy"><div class="gal-pin-cap"><h3>Mountain View Kitchen</h3><p>Quartz · Kitchen Island</p></div></div>
+<div class="gal-pin"><img src="portfolio-marble-vanity.webp" width="600" height="602" alt="White marble double vanity bathroom Colorado" loading="lazy"><div class="gal-pin-cap"><h3>Master Bath Vanity</h3><p>Marble · Double Vanity · Routt County</p></div></div>
+<div class="gal-pin"><img src="portfolio-stone-vanity.webp" width="600" height="712" alt="Custom stone vanity with river rock accents" loading="lazy"><div class="gal-pin-cap"><h3>Custom Stone Vanity</h3><p>Natural Stone · Powder Room</p></div></div>
+<div class="gal-pin"><img src="portfolio-rustic-kitchen.webp" width="600" height="754" alt="Rustic granite kitchen island Routt County Colorado" loading="lazy"><div class="gal-pin-cap"><h3>Rustic Mountain Kitchen</h3><p>Granite · Kitchen Island</p></div></div>
 </div>
 <div class="rv" style="text-align:center;padding:3rem 6vw 0">
 <a href="contact.html" class="btn-p">Start Your Project — Get a Free Estimate <span class="btn-arr"></span></a>

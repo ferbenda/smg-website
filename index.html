@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="preload" as="image" href="hero-kitchen-steamboat.webp" fetchpriority="high">
 <meta charset="UTF-8">
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="Steamboat-logo-white.png">
@@ -8,7 +9,7 @@
 <title>Steamboat Masters Granite | Premium Custom Countertops in Colorado</title>
 <meta name="description" content="Premium granite and quartz countertops in Steamboat Springs, Colorado. Custom fabrication and expert installation across Routt County. 25+ years combined experience, 1,000+ projects completed.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://smg-website-nine.vercel.app/">
+<link rel="canonical" href="https://www.steamboatmasters.com/">
 <meta name="author" content="Steamboat Masters Granite">
 <meta name="geo.region" content="US-CO">
 <meta name="geo.placename" content="Steamboat Springs">
@@ -117,13 +118,14 @@
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap"></noscript>
 <style>
 :root{
 --bg1:#0C0B0A;--bg2:#111110;--bg3:#1A1918;
 --em:#163631;--em-d:#0F2723;--em-l:#1E4A43;--em-g:#2A6B60;
 --gold:#C4A265;--gold-l:#D4B97A;--gold-d:#8B7342;
---t1:#F5F0E8;--t2:#A89F94;--t3:#6B6358;
+--t1:#F5F0E8;--t2:#A89F94;--t3:#9B9288;
 --b-gold:rgba(196,162,101,.15);--b-em:rgba(30,74,67,.5);--b-s:rgba(255,255,255,.06);
 --sf:'Cormorant Garamond',Georgia,serif;--sn:'Outfit',sans-serif;
 --ease:cubic-bezier(.25,.46,.45,.94)
@@ -431,12 +433,16 @@ img{display:block}
 
 
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"></noscript>
+  <link rel="preconnect" href="https://a.basemaps.cartocdn.com" crossorigin="">
+  <link rel="preconnect" href="https://b.basemaps.cartocdn.com" crossorigin="">
+  <link rel="preconnect" href="https://c.basemaps.cartocdn.com" crossorigin="">
 </head>
 <body>
 <svg style="position:absolute;width:0;height:0"><defs><filter id="gold-filter"><feColorMatrix type="matrix" values="0 0 0 0 0.82 0 0 0 0 0.64 0 0 0 0 0.25 0 0 0 1 0"/></filter></defs></svg>
 <nav class="nav" id="navbar">
-<a href="index.html" class="nav-logo"><img src="Steamboat-logo-white.png" alt="Steamboat Masters Granite"></a>
+<a href="index.html" class="nav-logo"><img src="Steamboat-logo-white.png" alt="Steamboat Masters Granite" width="90" height="90"></a>
 <ul class="nav-links" id="navLinks">
 
   <li><a href="about.html">About</a></li>
@@ -488,7 +494,8 @@ img{display:block}
 <button class="mob-tog" id="mobTog" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<section class="hero">
+<main id="main-content">
+  <section class="hero">
 <div class="hero-bg"></div>
 <div class="hero-overlay"></div>
 <div class="hero-c">
@@ -517,7 +524,7 @@ img{display:block}
 <div class="rv"><div class="sec-lab"><span class="sec-lab-line"></span><span class="sec-lab-text">Why Choose Us</span></div></div>
 <div class="about-grid">
 <div class="about-img rv">
-<img src="about-team-smg.webp" alt="Steamboat Masters Granite van and team delivering countertop slabs in Colorado Rocky Mountains">
+<img src="about-team-smg.webp" alt="Steamboat Masters Granite van and team delivering countertop slabs in Colorado Rocky Mountains" width="333" height="500">
 <div class="about-img-acc"></div>
 </div>
 <div class="about-text rv">
@@ -563,10 +570,10 @@ img{display:block}
 <p class="sec-desc">Authorized resellers of the continent's most prestigious stone brands with first-access delivery to our Steamboat Springs facility.</p>
 </div>
 <div class="mat-grid rv">
-<a href="granite.html" class="mat-card"><img src="material-granite.webp" alt="Granite countertops Steamboat Springs"><div class="mat-info"><h4>Granite</h4><p>Timeless Strength</p></div></a>
-<a href="quartz.html" class="mat-card"><img src="material-quartz.webp" alt="Quartz countertops Steamboat Springs"><div class="mat-info"><h4>Quartz</h4><p>Engineered Perfection</p></div></a>
-<a href="quartzite.html" class="mat-card"><img src="material-quartzite.webp" alt="Quartzite countertops Steamboat Springs"><div class="mat-info"><h4>Quartzite</h4><p>Exotic Elegance</p></div></a>
-<a href="other-materials.html" class="mat-card"><img src="material-other.webp" alt="Marble porcelain soapstone countertops"><div class="mat-info"><h4>Other Materials</h4><p>Marble · Porcelain · Soapstone</p></div></a>
+<a href="granite.html" class="mat-card"><img src="material-granite.webp" alt="Granite countertops Steamboat Springs" width="397" height="492"><div class="mat-info"><h3>Granite</h3><p>Timeless Strength</p></div></a>
+<a href="quartz.html" class="mat-card"><img src="material-quartz.webp" alt="Quartz countertops Steamboat Springs" width="397" height="492"><div class="mat-info"><h3>Quartz</h3><p>Engineered Perfection</p></div></a>
+<a href="quartzite.html" class="mat-card"><img src="material-quartzite.webp" alt="Quartzite countertops Steamboat Springs" width="397" height="492"><div class="mat-info"><h3>Quartzite</h3><p>Exotic Elegance</p></div></a>
+<a href="other-materials.html" class="mat-card"><img src="material-other.webp" alt="Marble porcelain soapstone countertops" width="397" height="492"><div class="mat-info"><h3>Other Materials</h3><p>Marble · Porcelain · Soapstone</p></div></a>
 </div>
 </section>
 
@@ -660,6 +667,7 @@ img{display:block}
 </div>
 </div>
 </section>
+</main>
 
 <button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 15l7-7 7 7"/></svg></button>
 
@@ -703,7 +711,7 @@ img{display:block}
 </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" defer></script><script>
 const nb=document.getElementById('navbar');
 const btt=document.getElementById('btt');
 let lastY=0;
@@ -836,7 +844,7 @@ const rvs=document.querySelectorAll('.rv');rvs.forEach(el=>el.classList.add('rea
 rvs.forEach(el=>ro.observe(el));
 
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
 <script>
 const covMap=L.map('covMap',{scrollWheelZoom:false,zoomControl:true,attributionControl:false,dragging:true,touchZoom:true}).setView([40.4,-106.9],7);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:18}).addTo(covMap);
@@ -888,7 +896,7 @@ mapObs.observe(document.getElementById('covMap'));
 </script>
 
 <!-- LIGHTBOX -->
-<div class="lb" id="lb" role="dialog" aria-modal="true">
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image gallery" aria-labelledby="lbTitle">
   <div class="lb-bg" id="lbBg"></div>
   <div class="lb-inner">
     <button class="lb-close" id="lbClose" aria-label="Close">✕</button>

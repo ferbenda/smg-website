@@ -142,7 +142,7 @@ img{display:block}
 .nav.hidden{transform:translateY(-100%);pointer-events:none}
 .nav.scrolled{background:rgba(12,11,10,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--b-gold);padding:.7rem 3.5rem}
 .nav-logo{display:flex;align-items:center;text-decoration:none;height:90px}
-.nav-logo img{height:100%;width:auto;object-fit:contain}
+.nav-logo img{height:100%;width:auto;object-fit:contain;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges}
 .nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
 .nav-links>li{position:relative}
 .nav-links a{font-size:.7rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--t2);text-decoration:none;transition:color .3s;position:relative;white-space:nowrap}
@@ -369,7 +369,7 @@ img{display:block}
 .ada-rm,.ada-rm *{animation:none!important;transition:none!important}
 .ada-rf,.ada-rf *{font-family:system-ui,-apple-system,Arial,sans-serif!important;letter-spacing:0!important}
 @media(max-width:1024px){.nav{padding:1rem 2rem}.nav.scrolled{padding:.6rem 2rem}.nav-links{gap:1.2rem}.sec{padding:5rem 4vw}.about-grid{gap:3rem}.svc-grid{grid-template-columns:1fr}.mat-grid{grid-template-columns:repeat(2,1fr)}.proc-tl{max-width:none}.proc-tl::before{left:28px}.proc-tl:hover .proc-s{filter:none;opacity:1;transform:none}.proc-tl:hover .proc-s:hover{transform:none}.tst-grid{grid-template-columns:1fr;gap:8px}.ft-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){.nav{padding:1rem 1.5rem}.nav-links{display:none}.mob-tog{display:flex}.nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(12,11,10,.98);backdrop-filter:blur(20px);padding:1.5rem;gap:.25rem;border-bottom:1px solid var(--b-gold);max-height:80vh;overflow-y:auto}.nav-links.active>li>a{display:block;padding:.6rem .5rem;font-size:.68rem}.nav-dd{position:static;opacity:1;pointer-events:auto;transform:none;background:transparent;border:none;padding:0;display:none}.nav-dd.mob-open{display:block}.nav-dd a{padding:.45rem .5rem .45rem 1.5rem;font-size:.63rem}.nav-drop>a svg{transition:transform .3s}.nav-drop.mob-open>a svg{transform:rotate(180deg)}.nav-dd-label{padding:.4rem .5rem .1rem 1.5rem}.nav-dd-div{margin:.2rem .5rem}.hero{height:auto;min-height:auto;padding-top:6rem;padding-bottom:0}.hero-c{padding:0 5vw 4vh;text-align:center;width:100%}.hero h1{font-size:clamp(2.4rem,8vw,3.2rem)}.hero-act{flex-direction:column;align-items:center;gap:1rem;width:100%}.hero-act .btn-s{display:none}.stats{grid-template-columns:repeat(2,1fr);gap:1rem;padding:1rem 5vw}.si:nth-child(2)::after{display:none}.sec{padding:4rem 5vw}.about-grid{grid-template-columns:1fr;gap:2.5rem}.about-badges{flex-direction:column;gap:1rem}.gal-masonry{columns:1;column-gap:0}.gal-pin{margin-bottom:12px}.mat-grid{grid-template-columns:1fr 1fr}.proc-tl{gap:0}.proc-tl::before{left:20px}.proc-s{padding-left:56px}.proc-dot{left:14px}.ft-grid{grid-template-columns:1fr;gap:2rem}.ft-bot{flex-direction:column;gap:1rem;text-align:center}.cta{padding:5rem 5vw}.cta-act{flex-direction:column}.cta-div{width:40px;height:1px}.gal-hdr{flex-direction:column;align-items:flex-start;gap:1.5rem}.prov{padding:3.5rem 5vw}.prov-logos{gap:1.5rem}.prov-row{flex-direction:column;align-items:center;gap:2rem}.prov-logos a{width:200px!important;height:55px!important}.prov-logos a img{opacity:.6}.prov-sub{font-size:1rem;margin-bottom:2rem}}
+@media(max-width:768px){.nav{padding:1rem 1.5rem;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}.nav.scrolled{background:rgba(12,11,10,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}.nav-links{display:none}.mob-tog{display:flex}.nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(12,11,10,.98);backdrop-filter:blur(20px);padding:1.5rem;gap:.25rem;border-bottom:1px solid var(--b-gold);max-height:80vh;overflow-y:auto}.nav-links.active>li>a{display:block;padding:.6rem .5rem;font-size:.68rem}.nav-dd{position:static;opacity:1;pointer-events:auto;transform:none;background:transparent;border:none;padding:0;display:none}.nav-dd.mob-open{display:block}.nav-dd a{padding:.45rem .5rem .45rem 1.5rem;font-size:.63rem}.nav-drop>a svg{transition:transform .3s}.nav-drop.mob-open>a svg{transform:rotate(180deg)}.nav-dd-label{padding:.4rem .5rem .1rem 1.5rem}.nav-dd-div{margin:.2rem .5rem}.hero{height:100vh;min-height:100svh;padding-top:0;padding-bottom:0}.hero-overlay{background:linear-gradient(180deg,rgba(12,11,10,.10) 0%,rgba(12,11,10,.18) 40%,rgba(12,11,10,.30) 70%,rgba(12,11,10,.55) 100%)}.hero-c{padding:0 5vw 4vh;text-align:center;width:100%}.hero h1{font-size:clamp(2.4rem,8vw,3.2rem)}.hero-act{flex-direction:column;align-items:center;gap:1rem;width:100%}.hero-act .btn-s{display:none}.stats{grid-template-columns:repeat(2,1fr);gap:1rem;padding:1rem 5vw}.si:nth-child(2)::after{display:none}.sec{padding:4rem 5vw}.about-grid{grid-template-columns:1fr;gap:2.5rem}.about-badges{flex-direction:column;gap:1rem}.gal-masonry{columns:1;column-gap:0}.gal-pin{margin-bottom:12px}.mat-grid{grid-template-columns:1fr 1fr}.proc-tl{gap:0}.proc-tl::before{left:20px}.proc-s{padding-left:56px}.proc-dot{left:14px}.ft-grid{grid-template-columns:1fr;gap:2rem}.ft-bot{flex-direction:column;gap:1rem;text-align:center}.cta{padding:5rem 5vw}.cta-act{flex-direction:column}.cta-div{width:40px;height:1px}.gal-hdr{flex-direction:column;align-items:flex-start;gap:1.5rem}.prov{padding:3.5rem 5vw}.prov-logos{gap:1.5rem}.prov-row{flex-direction:column;align-items:center;gap:2rem}.prov-logos a{width:200px!important;height:55px!important}.prov-logos a img{opacity:.6}.prov-sub{font-size:1rem;margin-bottom:2rem}}
 @media(max-width:480px){.stats{grid-template-columns:1fr 1fr}.mat-grid{grid-template-columns:1fr}.prov-row{gap:1.5rem}.prov-logos a{width:180px!important;height:45px!important}}
 /* COVERAGE MAP */
 .cov{background:var(--bg2);border-top:1px solid var(--b-gold)}
@@ -383,7 +383,7 @@ img{display:block}
 @media(max-width:1024px){.cov-cities{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:768px){#covMap{height:340px}.cov-cities{grid-template-columns:repeat(2,1fr)}.cov-cta{flex-direction:column;gap:1rem}}
 
-/* ── LUXURY TEXTURE ─────────────────────────────── */
+/* ââ LUXURY TEXTURE âââââââââââââââââââââââââââââââ */
 :root{--lux-tex:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='8'%3E%3Cpath d='M0 8L4 4L8 8' fill='none' stroke='rgba(196%2C162%2C101%2C0.09)' stroke-width='0.7' stroke-linecap='round'/%3E%3Cpath d='M8 8L12 4L16 8' fill='none' stroke='rgba(196%2C162%2C101%2C0.09)' stroke-width='0.7' stroke-linecap='round'/%3E%3Cpath d='M0 0L4 4L8 0' fill='none' stroke='rgba(196%2C162%2C101%2C0.05)' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M8 0L12 4L16 0' fill='none' stroke='rgba(196%2C162%2C101%2C0.05)' stroke-width='0.5' stroke-linecap='round'/%3E%3C/svg%3E")}
 .cta{background-image:var(--lux-tex)!important}
 .cta-banner{background-image:var(--lux-tex)!important}
@@ -401,9 +401,9 @@ img{display:block}
 .tst-card{background-image:var(--lux-tex)!important}
 .svc-card:hover{background-image:var(--lux-tex)!important}
 .about-badges{background-image:none}
-/* ─────────────────────────────────────────────── */
+/* âââââââââââââââââââââââââââââââââââââââââââââââ */
 
-/* ── LIGHTBOX ─────────────────────────────────── */
+/* ââ LIGHTBOX âââââââââââââââââââââââââââââââââââ */
 .lb{position:fixed;inset:0;z-index:9000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
 .lb.open{opacity:1;pointer-events:auto}
 .lb-bg{position:absolute;inset:0;background:rgba(12,11,10,.96);cursor:pointer}
@@ -420,7 +420,7 @@ img{display:block}
 .lb-prev{left:1.5rem}.lb-next{right:1.5rem}
 .lb-arrow svg{width:18px;height:18px}
 .gal-pin{cursor:zoom-in}
-/* ────────────────────────────────────────────── */
+/* ââââââââââââââââââââââââââââââââââââââââââââââ */
 
 /* FOOTER CREDIT - Big Moose AI */
 .ft-credit{padding:1.5rem 0 1rem;margin-top:1.5rem;border-top:1px solid rgba(30,74,67,.5);display:flex;align-items:center;justify-content:center;gap:1.25rem}
@@ -530,7 +530,7 @@ img{display:block}
 <div class="about-text rv">
 <h2 class="sec-title">Colorado's Trusted Granite & Quartz <em>Countertop Experts</em></h2>
 <p>Steamboat Masters Granite combines CNC precision fabrication with hands-on craftsmanship to deliver flawless countertops for kitchens, bathrooms, and commercial spaces across Steamboat Springs, Routt County, and Northwest Colorado.</p>
-<p>We serve residential and commercial projects of any scale — single-family homes, luxury mountain retreats, apartments, and commercial builds — all fully insured with a lifetime guarantee on every installation.</p>
+<p>We serve residential and commercial projects of any scale â single-family homes, luxury mountain retreats, apartments, and commercial builds â all fully insured with a lifetime guarantee on every installation.</p>
 <div class="about-badges">
 <div class="ab-i"><div class="ab-ic"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div class="ab-t"><strong>Personalized Templating</strong>Exact measurements, every time</div></div>
 <div class="ab-i"><div class="ab-ic"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div><div class="ab-t"><strong>Fully Insured</strong>Complete coverage and peace of mind</div></div>
@@ -548,13 +548,13 @@ img{display:block}
 <div class="rv">
 <div class="sec-lab"><span class="sec-lab-line"></span><span class="sec-lab-text">Our Process</span></div>
 <h2 class="sec-title">From First Call to <em>Final Polish</em></h2>
-<p class="sec-desc">Five seamless steps — we handle every detail so you don't have to.</p>
+<p class="sec-desc">Five seamless steps â we handle every detail so you don't have to.</p>
 </div>
 <div class="svc-grid rv">
-<a href="services.html#consultation" class="svc-card"><div class="svc-num">01</div><svg class="svc-ic" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg><h3>Consultation & Estimate</h3><p class="svc-sub">Free estimate in 24–48 hours — phone, text, email, or online.</p></a>
-<a href="services.html#materials" class="svc-card"><div class="svc-num">02</div><svg class="svc-ic" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg><h3>Material Selection</h3><p class="svc-sub">Expert guidance through our premium supplier network. Delivery in 2–3 weeks.</p></a>
+<a href="services.html#consultation" class="svc-card"><div class="svc-num">01</div><svg class="svc-ic" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg><h3>Consultation & Estimate</h3><p class="svc-sub">Free estimate in 24â48 hours â phone, text, email, or online.</p></a>
+<a href="services.html#materials" class="svc-card"><div class="svc-num">02</div><svg class="svc-ic" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg><h3>Material Selection</h3><p class="svc-sub">Expert guidance through our premium supplier network. Delivery in 2â3 weeks.</p></a>
 <a href="services.html#fabrication" class="svc-card"><div class="svc-num">03</div><svg class="svc-ic" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M2 17L12 22L22 17M2 12L12 17L22 12M12 2L2 7L12 12L22 7L12 2Z"/></svg><h3>Templating & Fabrication</h3><p class="svc-sub">On-site precision template. CNC cutting, edge profiling, and polish in ~1 week.</p></a>
-<a href="services.html#installation" class="svc-card"><div class="svc-num">04</div><svg class="svc-ic" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M3 9L12 2L21 9V20C21 20.53 20.79 21.04 20.41 21.41C20.04 21.79 19.53 22 19 22H5C4.47 22 3.96 21.79 3.59 21.41C3.21 21.04 3 20.53 3 20V9Z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><h3>Professional Installation</h3><p class="svc-sub">2–3 days typical. Clear communication, protected spaces, perfect results.</p></a>
+<a href="services.html#installation" class="svc-card"><div class="svc-num">04</div><svg class="svc-ic" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M3 9L12 2L21 9V20C21 20.53 20.79 21.04 20.41 21.41C20.04 21.79 19.53 22 19 22H5C4.47 22 3.96 21.79 3.59 21.41C3.21 21.04 3 20.53 3 20V9Z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><h3>Professional Installation</h3><p class="svc-sub">2â3 days typical. Clear communication, protected spaces, perfect results.</p></a>
 <a href="services.html#support" class="svc-card svc-card-wide"><div class="svc-num">05</div><svg class="svc-ic" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg><h3>Lifetime Guarantee & Support</h3><p class="svc-sub">We back every project with a lifetime guarantee on fabrication and installation.</p></a>
 </div>
 <div class="svc-cta rv">
@@ -573,7 +573,7 @@ img{display:block}
 <a href="granite.html" class="mat-card"><img src="material-granite.webp" alt="Granite countertops Steamboat Springs" width="397" height="492"><div class="mat-info"><h3>Granite</h3><p>Timeless Strength</p></div></a>
 <a href="quartz.html" class="mat-card"><img src="material-quartz.webp" alt="Quartz countertops Steamboat Springs" width="397" height="492"><div class="mat-info"><h3>Quartz</h3><p>Engineered Perfection</p></div></a>
 <a href="quartzite.html" class="mat-card"><img src="material-quartzite.webp" alt="Quartzite countertops Steamboat Springs" width="397" height="492"><div class="mat-info"><h3>Quartzite</h3><p>Exotic Elegance</p></div></a>
-<a href="other-materials.html" class="mat-card"><img src="material-other.webp" alt="Marble porcelain soapstone countertops" width="370" height="495"><div class="mat-info"><h3>Other Materials</h3><p>Marble · Porcelain · Soapstone</p></div></a>
+<a href="other-materials.html" class="mat-card"><img src="material-other.webp" alt="Marble porcelain soapstone countertops" width="370" height="495"><div class="mat-info"><h3>Other Materials</h3><p>Marble Â· Porcelain Â· Soapstone</p></div></a>
 </div>
 </section>
 
@@ -605,15 +605,15 @@ img{display:block}
 <section class="sec" id="gallery">
 <div class="gal-hdr rv"><div><div class="sec-lab"><span class="sec-lab-line"></span><span class="sec-lab-text">Our Portfolio</span></div><h2 class="sec-title">Crafted With <em>Precision</em></h2><p class="sec-desc">Over 1,000 kitchens, baths, and custom surfaces across Steamboat Springs and Northwest Colorado.</p></div></div>
 <div class="gal-masonry rv">
-<div class="gal-pin"><img src="portfolio-white-waterfall.webp" alt="White quartz waterfall island herringbone backsplash Steamboat Springs" loading="lazy"><div class="gal-pin-cap"><h3>Modern White Waterfall</h3><p>Quartz · Kitchen · Steamboat Springs</p></div></div>
-<div class="gal-pin"><img src="portfolio-crystalo-wall.webp" alt="Backlit crystal wall feature Steamboat Springs" loading="lazy"><div class="gal-pin-cap"><h3>Backlit Crystal Wall</h3><p>Cristallo Quartzite · Feature Wall</p></div></div>
-<div class="gal-pin"><img src="portfolio-quartz-mountain.webp" alt="Quartz kitchen island mountain view Steamboat Springs" loading="lazy"><div class="gal-pin-cap"><h3>Mountain View Kitchen</h3><p>Quartz · Kitchen Island</p></div></div>
-<div class="gal-pin"><img src="portfolio-marble-vanity.webp" alt="White marble double vanity bathroom Colorado" loading="lazy"><div class="gal-pin-cap"><h3>Master Bath Vanity</h3><p>Marble · Double Vanity · Routt County</p></div></div>
-<div class="gal-pin"><img src="portfolio-stone-vanity.webp" alt="Custom stone vanity with river rock accents" loading="lazy"><div class="gal-pin-cap"><h3>Custom Stone Vanity</h3><p>Natural Stone · Powder Room</p></div></div>
-<div class="gal-pin"><img src="portfolio-rustic-kitchen.webp" alt="Rustic granite kitchen island Routt County Colorado" loading="lazy"><div class="gal-pin-cap"><h3>Rustic Mountain Kitchen</h3><p>Granite · Kitchen Island</p></div></div>
+<div class="gal-pin"><img src="portfolio-white-waterfall.webp" alt="White quartz waterfall island herringbone backsplash Steamboat Springs" loading="lazy"><div class="gal-pin-cap"><h3>Modern White Waterfall</h3><p>Quartz Â· Kitchen Â· Steamboat Springs</p></div></div>
+<div class="gal-pin"><img src="portfolio-crystalo-wall.webp" alt="Backlit crystal wall feature Steamboat Springs" loading="lazy"><div class="gal-pin-cap"><h3>Backlit Crystal Wall</h3><p>Cristallo Quartzite Â· Feature Wall</p></div></div>
+<div class="gal-pin"><img src="portfolio-quartz-mountain.webp" alt="Quartz kitchen island mountain view Steamboat Springs" loading="lazy"><div class="gal-pin-cap"><h3>Mountain View Kitchen</h3><p>Quartz Â· Kitchen Island</p></div></div>
+<div class="gal-pin"><img src="portfolio-marble-vanity.webp" alt="White marble double vanity bathroom Colorado" loading="lazy"><div class="gal-pin-cap"><h3>Master Bath Vanity</h3><p>Marble Â· Double Vanity Â· Routt County</p></div></div>
+<div class="gal-pin"><img src="portfolio-stone-vanity.webp" alt="Custom stone vanity with river rock accents" loading="lazy"><div class="gal-pin-cap"><h3>Custom Stone Vanity</h3><p>Natural Stone Â· Powder Room</p></div></div>
+<div class="gal-pin"><img src="portfolio-rustic-kitchen.webp" alt="Rustic granite kitchen island Routt County Colorado" loading="lazy"><div class="gal-pin-cap"><h3>Rustic Mountain Kitchen</h3><p>Granite Â· Kitchen Island</p></div></div>
 </div>
 <div class="rv" style="text-align:center;padding:3rem 6vw 0">
-<a href="contact.html" class="btn-p">Start Your Project — Get a Free Estimate <span class="btn-arr"></span></a>
+<a href="contact.html" class="btn-p">Start Your Project â Get a Free Estimate <span class="btn-arr"></span></a>
 </div>
 </section>
 
@@ -623,7 +623,7 @@ img{display:block}
 <div class="sec-lab"><span class="sec-lab-line"></span><span class="sec-lab-text">Client Testimonials</span></div>
 <h2 class="sec-title">Trusted by Northwest Colorado's <em>Finest</em> Homeowners</h2>
 </div>
-<div class="tst-badge rv" style="text-align:center;margin:2rem 0 2.5rem"><span style="display:inline-flex;align-items:center;gap:.75rem;font-size:.9rem;font-weight:300;color:var(--gold-l);letter-spacing:.05em">&#9733; 5.0 on Google · Verified Reviews · Steamboat Springs, CO</span></div>
+<div class="tst-badge rv" style="text-align:center;margin:2rem 0 2.5rem"><span style="display:inline-flex;align-items:center;gap:.75rem;font-size:.9rem;font-weight:300;color:var(--gold-l);letter-spacing:.05em">&#9733; 5.0 on Google Â· Verified Reviews Â· Steamboat Springs, CO</span></div>
 <div class="rv" style="min-height:300px">
 <script src="https://elfsightcdn.com/platform.js" async></script>
 <div class="elfsight-app-3ff40a16-aefe-4c0f-a10f-c3928d31adb2" data-elfsight-app-lazy></div>
@@ -639,7 +639,7 @@ img{display:block}
 <div class="rv">
 <div class="sec-lab"><span class="sec-lab-line"></span><span class="sec-lab-text">Service Area</span></div>
 <h2 class="sec-title">Serving Northwest Colorado & <em>Southern Wyoming</em></h2>
-<p class="sec-desc">Based in Steamboat Springs, we cover a 100-mile radius — from Vail and Aspen to Glenwood Springs, Craig, and across the Wyoming border.</p>
+<p class="sec-desc">Based in Steamboat Springs, we cover a 100-mile radius â from Vail and Aspen to Glenwood Springs, Craig, and across the Wyoming border.</p>
 </div>
 <div class="cov-map rv">
 <div id="covMap"></div>
@@ -656,7 +656,7 @@ img{display:block}
 <div class="cta-c rv">
 <div class="sec-lab" style="justify-content:center"><span class="sec-lab-line"></span><span class="sec-lab-text">Get Started</span><span class="sec-lab-line"></span></div>
 <h2 class="sec-title">Ready to Transform <em>Your Space?</em></h2>
-<p class="sec-desc">Get a complimentary estimate within 24–48 hours. Our countertop specialists serve Steamboat Springs, Routt County, and all of Northwest Colorado.</p>
+<p class="sec-desc">Get a complimentary estimate within 24â48 hours. Our countertop specialists serve Steamboat Springs, Routt County, and all of Northwest Colorado.</p>
 <div class="cta-act">
 <a href="contact.html" class="btn-p">Request Free Estimate <span class="btn-arr"></span></a>
 <span class="cta-div"></span>
@@ -725,9 +725,9 @@ let animating=false;
 
 function setHeroProgress(p){
   heroProgress=Math.min(1,Math.max(0,p));
-  // Phase 1 (heroProgress 1→0.33): text fades out
+  // Phase 1 (heroProgress 1â0.33): text fades out
   const textOpacity=Math.max(0,Math.min(1,(heroProgress-0.33)/0.67));
-  // Phase 2 (heroProgress 0.33→0): overlay fades out
+  // Phase 2 (heroProgress 0.33â0): overlay fades out
   const overlayOpacity=Math.max(0,Math.min(1,heroProgress/0.33));
   heroOverlay.style.opacity=overlayOpacity;
   heroC.style.opacity=textOpacity;
@@ -899,7 +899,7 @@ mapObs.observe(document.getElementById('covMap'));}},{threshold:0.1});mapObserve
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image gallery" aria-labelledby="lbTitle">
   <div class="lb-bg" id="lbBg"></div>
   <div class="lb-inner">
-    <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+    <button class="lb-close" id="lbClose" aria-label="Close">â</button>
     <img class="lb-img" id="lbImg" src="" alt="">
     <div class="lb-cap"><h3 id="lbTitle"></h3><p id="lbSub"></p></div>
   </div>

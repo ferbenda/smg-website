@@ -847,9 +847,7 @@ rvs.forEach(el=>ro.observe(el));
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
 <script>
-window.addEventListener('load', function() {
-
-const covMap=L.map('covMap',{scrollWheelZoom:false,zoomControl:true,attributionControl:false,dragging:true,touchZoom:true}).setView([40.4,-106.9],7);
+const mapObserver=new IntersectionObserver((entries)=>{if(entries[0].isIntersecting){mapObserver.disconnect();const covMap=L.map('covMap',{scrollWheelZoom:false,zoomControl:true,attributionControl:false,dragging:true,touchZoom:true}).setView([40.4,-106.9],7);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:18}).addTo(covMap);
 
 const cities=[
@@ -895,9 +893,7 @@ covMap.fitBounds(allBounds,{padding:[40,40]});
 const mapObs=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{if(e.isIntersecting){covMap.invalidateSize();covMap.fitBounds(allBounds,{padding:[40,40]});}});
 },{threshold:0.1});
-mapObs.observe(document.getElementById('covMap'));
-
-});
+mapObs.observe(document.getElementById('covMap'));}},{threshold:0.1});mapObserver.observe(document.getElementById('covMap'));
 </script>
 
 <!-- LIGHTBOX -->

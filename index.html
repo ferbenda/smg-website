@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="preload" as="image" href="hero-kitchen-mobile.webp" fetchpriority="high" media="(max-width: 768px)">
-  <link rel="preload" as="image" href="hero-kitchen-steamboat.webp" fetchpriority="high" media="(min-width: 769px)">
+  <link rel="preload" as="image" href="hero-kitchen-steamboat.webp" fetchpriority="high">
 <meta charset="UTF-8">
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="Steamboat-logo-white.png">
@@ -192,7 +191,7 @@ img{display:block}
 
 /* HERO */
 .hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:center;justify-content:center;overflow:hidden;text-align:center}
-.hero-bg{position:absolute;inset:0;background:url('hero-kitchen-steamboat.webp') center/cover;animation:pullout 6s cubic-bezier(0.25,0.46,0.45,0.94) forwards}@media(max-width:768px){.hero-bg{background-image:url('hero-kitchen-mobile.webp')}}
+.hero-bg{position:absolute;inset:0;background:url('hero-kitchen-steamboat.webp') center/cover;animation:pullout 6s cubic-bezier(0.25,0.46,0.45,0.94) forwards}
 @keyframes pullout{from{transform:scale(1.08)}to{transform:scale(1.0)}}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,11,10,.55) 0%,rgba(12,11,10,.65) 30%,rgba(12,11,10,.75) 55%,rgba(12,11,10,.92) 80%,var(--bg1) 100%);opacity:1}
 .hero-c{position:relative;z-index:2;padding:0 6vw;max-width:900px;opacity:1;transform:translateY(0);transition:opacity .6s ease,transform .6s ease}
@@ -525,7 +524,7 @@ img{display:block}
 <div class="rv"><div class="sec-lab"><span class="sec-lab-line"></span><span class="sec-lab-text">Why Choose Us</span></div></div>
 <div class="about-grid">
 <div class="about-img rv">
-<img src="about-team-smg.webp" alt="Steamboat Masters Granite van and team delivering countertop slabs in Colorado Rocky Mountains" width="800" height="1200">
+<img src="about-team-smg.webp" alt="Steamboat Masters Granite van and team delivering countertop slabs in Colorado Rocky Mountains" width="333" height="500">
 <div class="about-img-acc"></div>
 </div>
 <div class="about-text rv">
@@ -571,9 +570,9 @@ img{display:block}
 <p class="sec-desc">Authorized resellers of the continent's most prestigious stone brands with first-access delivery to our Steamboat Springs facility.</p>
 </div>
 <div class="mat-grid rv">
-<a href="granite.html" class="mat-card"><img src="material-granite.webp" alt="Granite countertops Steamboat Springs" width="600" height="744"><div class="mat-info"><h3>Granite</h3><p>Timeless Strength</p></div></a>
-<a href="quartz.html" class="mat-card"><img src="material-quartz.webp" alt="Quartz countertops Steamboat Springs" width="600" height="744"><div class="mat-info"><h3>Quartz</h3><p>Engineered Perfection</p></div></a>
-<a href="quartzite.html" class="mat-card"><img src="material-quartzite.webp" alt="Quartzite countertops Steamboat Springs" width="600" height="744"><div class="mat-info"><h3>Quartzite</h3><p>Exotic Elegance</p></div></a>
+<a href="granite.html" class="mat-card"><img src="material-granite.webp" alt="Granite countertops Steamboat Springs" width="397" height="492"><div class="mat-info"><h3>Granite</h3><p>Timeless Strength</p></div></a>
+<a href="quartz.html" class="mat-card"><img src="material-quartz.webp" alt="Quartz countertops Steamboat Springs" width="397" height="492"><div class="mat-info"><h3>Quartz</h3><p>Engineered Perfection</p></div></a>
+<a href="quartzite.html" class="mat-card"><img src="material-quartzite.webp" alt="Quartzite countertops Steamboat Springs" width="397" height="492"><div class="mat-info"><h3>Quartzite</h3><p>Exotic Elegance</p></div></a>
 <a href="other-materials.html" class="mat-card"><img src="material-other.webp" alt="Marble porcelain soapstone countertops" width="370" height="495"><div class="mat-info"><h3>Other Materials</h3><p>Marble · Porcelain · Soapstone</p></div></a>
 </div>
 </section>

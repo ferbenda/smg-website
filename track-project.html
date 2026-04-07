@@ -403,31 +403,23 @@ document.addEventListener('click',(e)=>{if(!e.target.closest('.nav-drop'))_dr.fo
 _nl.querySelectorAll('a:not(.nav-drop>a)').forEach(a=>a.addEventListener('click',()=>_nl.classList.remove('active')));
 window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>50));
 
-/*
-  GOOGLE SHEETS — 2 tabs:
 
-  Tab 1: "projects"
-  A: project_id | B: client_name | C: client_search | D: status
-  E: status_label | F: project_title | G: description
-  H: start_date | I: location | J: current_step (1-5)
+// Google Sheets CSV integration
+const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0u35zospWVdMiMyzAw2Pq4pTLlj06ITYUkTxDb8OkA6RqTSY76AzMKWfBBxozoe2AcwjVli-WY4nW/pub?output=csv';
 
-  Tab 2: "activity"
-  A: project_id | B: date | C: dot_status | D: title | E: description
+const STEP_MAP = { estimate:1, material:2, fabrication:3, installation:4, complete:5 };
+const STATUS_LABELS = { estimate:'Estimate', material:'Material Selection', fabrication:'Fabrication', installation:'Installation', complete:'Complete' };
+const STEP_NAMES = ['Estimate','Material','Fabrication','Installation','Complete'];
 
-  Setup: Create Sheet → Publish to web → Paste ID below
-*/
-const SHEET_ID = 'YOUR_GOOGLE_SHEET_ID_HERE';
-const projectsURL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=projects`;
-const activityURL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=activity`;
-
-function parseSheet(text) {
-  const json = JSON.parse(text.substring(47).slice(0, -2));
-  const cols = json.table.cols.map(c => c.label);
-  return json.table.rows.map(r => {
-    const o = {};
-    r.c.forEach((c, i) => o[cols[i] || `col${i}`] = c ? (c.v || '') : '');
-    return o;
-  });
+function parseCSV(text) {
+  const rows = text.trim().split('\n');
+  const headers = rows[0].split(',').map(h => h.trim().replace(/^"|"$/g,''));
+  return rows.slice(1).map(line => {
+    const vals = line.match(/("(?:[^"]|"")*"|[^,]*)/g).map(v => v.replace(/^"|"$/g,'').replace(/""/g,'"').trim());
+    const obj = {};
+    headers.forEach((h, i) => obj[h] = vals[i] || '');
+    return obj;
+  }).filter(r => r.project_id);
 }
 
 async function searchProject() {
@@ -437,36 +429,34 @@ async function searchProject() {
   document.getElementById('trackContent').classList.remove('show');
   document.getElementById('trackEmpty').classList.remove('show');
   try {
-    const [projects, activity] = await Promise.all([
-      fetch(projectsURL).then(r => r.text()).then(parseSheet),
-      fetch(activityURL).then(r => r.text()).then(parseSheet)
-    ]);
+    const res = await fetch(SHEET_CSV_URL);
+    const text = await res.text();
+    const projects = parseCSV(text);
     const proj = projects.find(p =>
       p.project_id?.toLowerCase() === q ||
-      p.client_search?.toLowerCase().includes(q) ||
       p.client_name?.toLowerCase().includes(q)
     );
     document.getElementById('trackLoading').classList.remove('show');
     if (!proj) { document.getElementById('trackEmpty').classList.add('show'); return; }
-    render(proj, activity.filter(a => a.project_id === proj.project_id));
+    renderProject(proj);
     document.getElementById('trackContent').classList.add('show');
-  } catch (e) {
+  } catch(e) {
     document.getElementById('trackLoading').classList.remove('show');
-    showDemo();
-    document.getElementById('trackContent').classList.add('show');
+    document.getElementById('trackEmpty').classList.add('show');
   }
 }
 
-function render(proj, activity) {
-  const step = parseInt(proj.current_step) || 1;
+function renderProject(proj) {
+  const stepNum = STEP_MAP[proj.status] || 1;
   const fills = [0, 0, 22, 47, 72, 100];
-  document.getElementById('progressFill').style.width = fills[step] + '%';
+  document.getElementById('progressFill').style.width = fills[stepNum] + '%';
   for (let i = 1; i <= 5; i++) {
-    document.getElementById(`prog-${i}`).className = 'progress-icon ' + (i < step ? 'done' : i === step ? 'active' : 'pending');
+    document.getElementById('prog-'+i).className = 'progress-icon ' + (i < stepNum ? 'done' : i === stepNum ? 'active' : 'pending');
   }
+  const statusLabel = STATUS_LABELS[proj.status] || proj.status;
   document.getElementById('statusCard').innerHTML = `
     <div class="status-top">
-      <div class="status-badge ${proj.status}"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>${proj.status_label}</div>
+      <div class="status-badge ${proj.status}"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>${statusLabel}</div>
       <span class="status-id">${proj.project_id}</span>
     </div>
     <div class="status-title">${proj.project_title}</div>
@@ -476,9 +466,14 @@ function render(proj, activity) {
       <div class="status-meta-item"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span><strong>Started:</strong> ${proj.start_date}</span></div>
       <div class="status-meta-item"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg><span><strong>Location:</strong> ${proj.location}</span></div>
     </div>`;
+  const stepCols = ['estimate','material','fabrication','installation','complete'];
   let html = `<div class="timeline-title"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Project Updates</div><div class="tl-items">`;
-  activity.forEach(a => {
-    html += `<div class="tl-item ${a.dot_status}"><div class="tl-dot ${a.dot_status}"></div><div class="tl-date">${a.date}</div><div class="tl-text"><strong>${a.title}</strong> — ${a.description}</div></div>`;
+  stepCols.forEach((col, idx) => {
+    if (!proj[col]) return;
+    const isActive = (idx + 1) === stepNum;
+    const isDone = (idx + 1) < stepNum;
+    const dotClass = isDone ? 'done' : isActive ? 'active' : 'pending';
+    html += `<div class="tl-item ${dotClass}"><div class="tl-dot ${dotClass}"></div><div class="tl-date">${proj[col]}</div><div class="tl-text"><strong>${STEP_NAMES[idx]}</strong></div></div>`;
   });
   html += '</div>';
   document.getElementById('timeline').innerHTML = html;
@@ -487,7 +482,6 @@ function render(proj, activity) {
 function showDemo() {
   // Ready for client data
 }
-
 </script>
 
 </body>

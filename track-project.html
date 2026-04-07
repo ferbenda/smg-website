@@ -317,46 +317,25 @@ img{display:block}
 </div>
 
 <!-- Project Content -->
-<div class="track-content show" id="trackContent">
+<div class="track-content" id="trackContent">
 
 <!-- Progress Bar -->
 <div class="progress-wrap">
 <div class="progress-bar">
-<div class="progress-fill" id="progressFill" style="width:47%"></div>
-<div class="progress-step"><div class="progress-icon done" id="prog-1"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div><span class="progress-label">Estimate</span></div>
-<div class="progress-step"><div class="progress-icon done" id="prog-2"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div><span class="progress-label">Material</span></div>
-<div class="progress-step"><div class="progress-icon active" id="prog-3"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 17L12 22L22 17M2 12L12 17L22 12M12 2L2 7L12 12L22 7L12 2Z"/></svg></div><span class="progress-label">Fabrication</span></div>
+<div class="progress-fill" id="progressFill" style="width:0%"></div>
+<div class="progress-step"><div class="progress-icon pending" id="prog-1"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div><span class="progress-label">Estimate</span></div>
+<div class="progress-step"><div class="progress-icon pending" id="prog-2"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div><span class="progress-label">Material</span></div>
+<div class="progress-step"><div class="progress-icon pending" id="prog-3"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 17L12 22L22 17M2 12L12 17L22 12M12 2L2 7L12 12L22 7L12 2Z"/></svg></div><span class="progress-label">Fabrication</span></div>
 <div class="progress-step"><div class="progress-icon pending" id="prog-4"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9L12 2L21 9V20C21 20.53 20.79 21.04 20.41 21.41C20.04 21.79 19.53 22 19 22H5C4.47 22 3.96 21.79 3.59 21.41C3.21 21.04 3 20.53 3 20V9Z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><span class="progress-label">Installation</span></div>
 <div class="progress-step"><div class="progress-icon pending" id="prog-5"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div><span class="progress-label">Complete</span></div>
 </div>
 </div>
 
 <!-- Status Card -->
-<div class="status-card" id="statusCard">
-<div class="status-top">
-<div class="status-badge in-progress"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>In Progress</div>
-<span class="status-id">SMG-2026-0218</span>
-</div>
-<div class="status-title">Kitchen & Island — Quartz (Cambria Ella)</div>
-<div class="status-sub">Your slabs arrived at our Steamboat Springs facility on Feb 18. Edge profiling and sink cutouts are currently underway. Estimated fabrication completion: Feb 27.</div>
-<div class="status-meta">
-<div class="status-meta-item"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg><span><strong>Client:</strong> Johnson Residence</span></div>
-<div class="status-meta-item"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span><strong>Started:</strong> Feb 3, 2026</span></div>
-<div class="status-meta-item"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg><span><strong>Location:</strong> Steamboat Springs</span></div>
-</div>
-</div>
+<div class="status-card" id="statusCard"></div>
 
 <!-- Activity Timeline -->
-<div class="timeline" id="timeline">
-<div class="timeline-title"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Project Updates</div>
-<div class="tl-items">
-<div class="tl-item active"><div class="tl-dot active"></div><div class="tl-date">Feb 22, 2026</div><div class="tl-text"><strong>Edge profiling in progress</strong> — Waterfall mitre edge on island, eased edge on perimeter. Sink cutout for Kohler undermount scheduled for tomorrow morning.</div></div>
-<div class="tl-item done"><div class="tl-dot done"></div><div class="tl-date">Feb 18, 2026</div><div class="tl-text"><strong>Slabs received & inspected</strong> — Both Cambria Ella slabs arrived in perfect condition. QC passed. Cut layout mapped to maximize veining flow across the island.</div></div>
-<div class="tl-item done"><div class="tl-dot done"></div><div class="tl-date">Feb 10, 2026</div><div class="tl-text"><strong>On-site template completed</strong> — Full template captured at residence. Island confirmed at 96" × 42" with waterfall on both ends. Backsplash height: 4 inches.</div></div>
-<div class="tl-item done"><div class="tl-dot done"></div><div class="tl-date">Feb 6, 2026</div><div class="tl-text"><strong>Material secured</strong> — Cambria Ella — 2 slabs, Lot #EL-4429. Reserved from Cambria Denver distribution center. Delivery confirmed Feb 17–18.</div></div>
-<div class="tl-item done"><div class="tl-dot done"></div><div class="tl-date">Feb 3, 2026</div><div class="tl-text"><strong>Estimate approved — project started</strong> — Kitchen perimeter + island + waterfall edges. Estimate #EST-2026-0218 approved. Welcome aboard!</div></div>
-</div>
-</div>
+<div class="timeline" id="timeline"></div>
 
 </div>
 
@@ -506,20 +485,9 @@ function render(proj, activity) {
 }
 
 function showDemo() {
-  render(
-    { project_id:'SMG-2026-0218', client_name:'Johnson Residence', status:'in-progress', status_label:'In Progress', project_title:'Kitchen & Island — Quartz (Cambria Ella)', description:'Your slabs arrived at our Steamboat Springs facility on Feb 18. Edge profiling and sink cutouts are currently underway. Estimated fabrication completion: Feb 27.', start_date:'Feb 3, 2026', location:'Steamboat Springs', current_step:'3' },
-    [
-      { date:'Feb 22, 2026', dot_status:'active', title:'Edge profiling in progress', description:'Waterfall mitre edge on island, eased edge on perimeter. Sink cutout for Kohler undermount scheduled for tomorrow morning.' },
-      { date:'Feb 18, 2026', dot_status:'done', title:'Slabs received & inspected', description:'Both Cambria Ella slabs arrived in perfect condition. QC passed. Cut layout mapped to maximize veining flow across the island.' },
-      { date:'Feb 10, 2026', dot_status:'done', title:'On-site template completed', description:'Full template captured at residence. Island confirmed at 96" × 42" with waterfall on both ends. Backsplash height: 4 inches.' },
-      { date:'Feb 6, 2026', dot_status:'done', title:'Material secured', description:'Cambria Ella — 2 slabs, Lot #EL-4429. Reserved from Cambria Denver distribution center. Delivery confirmed Feb 17–18.' },
-      { date:'Feb 3, 2026', dot_status:'done', title:'Estimate approved — project started', description:'Kitchen perimeter + island + waterfall edges. Estimate #EST-2026-0218 approved. Welcome aboard!' }
-    ]
-  );
+  // Ready for client data
 }
 
-// Auto-load demo
-window.addEventListener('DOMContentLoaded', () => { showDemo(); document.getElementById('trackContent').classList.add('show'); });
 </script>
 
 </body>
